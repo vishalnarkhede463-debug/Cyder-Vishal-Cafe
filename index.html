@@ -3,14 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/png" href="img/icon.png">
-<link rel="icon" sizes="32x32" href="logo-32.png">
-<link rel="icon" sizes="192x192" href="logo-192.png">
-<link rel="apple-touch-icon" href="logo-192.png">
+    <link rel="icon" type="image/png" href="img/icon.png" />
+    <link rel="icon" sizes="32x32" href="logo-32.png" />
+    <link rel="icon" sizes="192x192" href="logo-192.png" />
+    <link rel="apple-touch-icon" href="logo-192.png" />
     <title>CAFÉ Service Center</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
       rel="stylesheet"
     />
 
@@ -21,13 +25,11 @@
         box-sizing: border-box;
         font-family: "Montserrat", sans-serif;
       }
-
       body {
         background: #f0f4f8;
         color: #333;
         scroll-behavior: smooth;
       }
-
       header {
         background: #004aad;
         color: white;
@@ -38,7 +40,6 @@
         position: sticky;
         top: 0;
       }
-
       nav a {
         margin-left: 20px;
         color: white;
@@ -47,7 +48,6 @@
       nav a:hover {
         color: #ffda44;
       }
-
       .hero {
         height: 80vh;
         display: flex;
@@ -60,7 +60,6 @@
         background-size: cover;
         text-align: center;
       }
-
       .hero h2 {
         font-size: 45px;
         margin-bottom: 10px;
@@ -68,7 +67,6 @@
       .hero p {
         font-size: 18px;
       }
-
       .hero button {
         padding: 15px 30px;
         background: #004aad;
@@ -81,24 +79,20 @@
       .hero button:hover {
         background: #002f7a;
       }
-
       section {
         padding: 70px 40px;
       }
-
       h2 {
         text-align: center;
         margin-bottom: 40px;
         color: #004aad;
       }
-
       .service-list,
       .form-list {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 25px;
       }
-
       .service-item,
       .form-item {
         background: white;
@@ -108,19 +102,16 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         transition: 0.3s;
       }
-
       .service-item:hover,
       .form-item:hover {
         transform: translateY(-10px);
       }
-
       img {
         width: 80px;
         height: 80px;
         object-fit: contain;
         margin-bottom: 10px;
       }
-
       .requirements {
         display: block;
         margin-top: 15px;
@@ -129,7 +120,6 @@
         color: #004aad;
         font-weight: 500;
       }
-
       .form-item ul li {
         background: #f0f6ff;
         padding: 10px;
@@ -137,19 +127,16 @@
         margin-bottom: 8px;
         transition: 0.3s;
       }
-
       .form-item ul li:hover {
         background: #dbe9ff;
         transform: translateX(5px);
       }
-
       form {
         max-width: 500px;
         margin: auto;
         display: flex;
         flex-direction: column;
       }
-
       input,
       textarea,
       select {
@@ -158,7 +145,6 @@
         border-radius: 10px;
         border: 1px solid #ccc;
       }
-
       button {
         padding: 12px;
         background: #004aad;
@@ -170,15 +156,12 @@
       button:hover {
         background: #002f7a;
       }
-
       footer {
         text-align: center;
         padding: 20px;
         background: #004aad;
         color: white;
-      }
-
-      /* Mobile */
+      } /* Mobile */
       @media (max-width: 768px) {
         header {
           flex-direction: column;
@@ -186,9 +169,7 @@
         .hero h2 {
           font-size: 30px;
         }
-      }
-
-      /* Button style */
+      } /* Button style */
       .form-btn {
         padding: 10px 20px;
         margin-top: 10px;
@@ -198,122 +179,314 @@
         color: white;
         cursor: pointer;
       }
-.hero-about {
+      .hero-about {
+        position: relative;
+        min-height: 100vh;
+        background: url("https://images.unsplash.com/photo-1581091215369-9334b7f3ee1b")
+          center/cover no-repeat;
+        background-attachment: fixed; /* THIS MAKES THE BG STAY FIXED */
+        color: white;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 80px 50px;
+      }
+      .hero-overlay {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* overlay for readability */
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 20px;
+      }
+      .hero-content {
+        max-width: 1000px;
+      }
+      .hero-content h2 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        color: #ffda44;
+      }
+      .hero-content p {
+        font-size: 18px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+      .hero-content button {
+        padding: 15px 30px;
+        background: #004aad;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .hero-content button:hover {
+        background: #002f7a;
+      } /* Mobile */
+      @media (max-width: 768px) {
+        .hero-about {
+          padding: 40px 20px;
+        }
+        .hero-content h2 {
+          font-size: 32px;
+        }
+        .hero-content p {
+          font-size: 16px;
+        }
+      }
+      #contact button,
+      #appointment button {
+        background: #ffda44;
+        color: #004aad;
+      }
+      #contact button:hover,
+      #appointment button:hover {
+        background: #ffc107;
+      }
+      .whatsapp-btn {
+        position: fixed;
+        bottom: 90px;
+        right: 25px;
+        background: #25d366;
+        color: white;
+        padding: 15px;
+        border-radius: 50%;
+        font-size: 20px;
+        text-decoration: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+      .dark {
+        background: #111;
+        color: white;
+      }
+      #loader {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: #004aad;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+  #fees {
+  background: linear-gradient(135deg, #f0f4f8, #e6f0ff);
+}
+
+.fees-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.fee-card {
   position: relative;
-  min-height: 100vh;
-  background: url('https://images.unsplash.com/photo-1581091215369-9334b7f3ee1b') center/cover no-repeat;
-  background-attachment: fixed; /* THIS MAKES THE BG STAY FIXED */
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.fee-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 74, 173, 0.3);
+}
+
+.fee-card h3 {
+  color: #004aad;
+  margin-bottom: 10px;
+}
+
+.fee-card p {
+  color: #555;
+  font-size: 14px;
+}
+
+.fee-card h4 {
+  margin-top: 15px;
+  font-size: 22px;
+  color: #ff9800;
+  font-weight: bold;
+}
+
+/* 🔥 Highlight Popular Card */
+.fee-card.popular {
+  background: linear-gradient(135deg, #004aad, #007bff);
   color: white;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 80px 50px;
+  transform: scale(1.05);
 }
 
-.hero-overlay {
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5); /* overlay for readability */
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 20px;
+.fee-card.popular h3,
+.fee-card.popular p,
+.fee-card.popular h4 {
+  color: white;
 }
 
-.hero-content {
-  max-width: 1000px;
-}
-
-.hero-content h2 {
-  font-size: 48px;
-  margin-bottom: 20px;
+.fee-card.popular h4 {
   color: #ffda44;
 }
 
-.hero-content p {
-  font-size: 18px;
-  line-height: 1.8;
-  margin-bottom: 20px;
-  text-align: left;
-}
+/* Tag */
+/* Popular tag */
 
-.hero-content button {
-  padding: 15px 30px;
-  background: #004aad;
-  color: white;
+
+.lang-switch button {
+  padding: 6px 12px;
+  margin-left: 5px;
   border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.hero-content button:hover {
-  background: #002f7a;
-}
-
-/* Mobile */
-@media(max-width:768px) {
-  .hero-about {
-    padding: 40px 20px;
-  }
-  .hero-content h2 {
-    font-size: 32px;
-  }
-  .hero-content p {
-    font-size: 16px;
-  }
-}
-#contact button, #appointment button {
+  border-radius: 15px;
   background: #ffda44;
   color: #004aad;
+  cursor: pointer;
 }
-#contact button:hover, #appointment button:hover {
+.fee-card button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #ffda44;
+  color: #004aad;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.fee-card button:hover {
   background: #ffc107;
+  transform: scale(1.05);
+}
+
+.fee-card .note {
+  font-size: 12px;
+  margin-top: 10px;
+  color: #eee;
+}
+
+/* If not popular card */
+.fee-card:not(.popular) .note {
+  color: #555;
+}
+.qr-box {
+  text-align: center;
+  margin-top: 20px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.qr-box img {
+  border-radius: 10px;
+  margin: 10px 0;
+}
+#paidBtn {
+  margin-top: 10px;
+  padding: 10px;
+  background: #28a745;
+  color: white;
+  border-radius: 20px;
+  border: none;
+}
+
+#submitBtn:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+
+.booking-section {
+  display: flex;
+  flex-direction: column; /* keeps button on top, timer below */
+  align-items: center;
+  margin-top: 10px;
+}
+
+.timer {
+  margin-top: 5px;
+  font-size: 16px;
+  color: red;
+  font-weight: bold;
+  height: 24px; /* reserves space so boxes don't shift */
+}
+/* Remove absolute positioning */
+.fee-card .tag {
+  position: relative;       /* no overlap */
+  display: inline-block;    
+  background: red;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;     /* space below the tag */
+  font-weight: bold;
 }
     </style>
   </head>
 
   <body>
+    <div id="google_translate_element" style="display:none;"></div>
     <header>
-      <h1>Cyber vishal CAFÉ </h1>
+      <h1 class="notranslate">Cyber vishal CAFÉ</h1>
       <nav>
         <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#forms">Forms</a>
         <a href="#contact">Contact</a>
         <a href="#appointment">Appointment</a>
+       <a href="#fees">fees</a>
       </nav>
+    <div class="lang-switch">
+  <button onclick="changeLang('en')">EN</button>
+  <button onclick="changeLang('hi')">हिंदी</button>
+  <button onclick="changeLang('mr')">मराठी</button>
+</div>
     </header>
-
-<section class="hero-about" id="home">
-  <div class="hero-overlay">
-    <div class="hero-content">
-      <h2>Welcome to Cyber vishal CAFÉ</h2>
-      <p>
-        Welcome to Cyber vishal CAFÉ – your trusted destination for all government-related services, digital assistance, and professional support. 
-        At CAFÉ, we are dedicated to simplifying the complex processes of official paperwork, forms, and applications for citizens of all ages. 
-        Our team has years of experience helping individuals and families with Aadhaar updates, License applications and renewals, PAN card services, 
-        RTE forms, 7/12 land records, Government Exam forms, and a wide variety of Yojana applications including PMJAY, Ladli Bahin Yojana, PM Kisan Yojana, 
-        PM Ujjwal LPG Connection, PM Fasal Bima Yojana, Scholarships, and many more.
-      </p>
-      <p>
-        We also provide specialized digital services like Computer Software Support, Virus Cleaning, APP Installation, Coding Platform Assistance, Password Reset, and more. 
-        Our mission is to ensure that every citizen can access government services easily, quickly, and without unnecessary hassle. 
-        With personalized guidance, attention to detail, and professional expertise, we help you fill forms correctly, gather the required documents, 
-        and complete applications efficiently.
-      </p>
-      <p>
-        AtCyber vishal CAFÉ, we believe in transparency, reliability, and customer satisfaction. 
-        Whether it’s a personal application, family benefit, educational form, or digital support, we are here to assist you at every step. 
-        Trust us to make government and digital services simple, accessible, and stress-free for everyone.
-      </p>
-      <button onclick="scrollToSection('services')">View Services</button>
-    </div>
-  </div>
-</section>
-
+    <div id="loader">Loading...</div>
+    <section class="hero-about" id="home">
+      <div class="hero-overlay">
+        <div class="hero-content">
+       <h2 id="home-title">Welcome to Cyber Vishal CAFÉ</h2>
+          <p id="home-desc">
+            Welcome to <mark class="notranslate">Cyber vishal CAFÉ</mark>– your trusted destination for all
+            government-related services, digital assistance, and professional
+            support. At CAFÉ, we are dedicated to simplifying the complex
+            processes of official paperwork, forms, and applications for
+            citizens of all ages. Our team has years of experience helping
+            individuals and families with Aadhaar updates, License applications
+            and renewals, PAN card services, RTE forms, 7/12 land records,
+            Government Exam forms, and a wide variety of Yojana applications
+            including PMJAY, Ladli Bahin Yojana, PM Kisan Yojana, PM Ujjwal LPG
+            Connection, PM Fasal Bima Yojana, Scholarships, and many more.
+          </p>
+          <p id="home-desc">
+            We also provide specialized digital services like Computer Software
+            Support, Virus Cleaning, APP Installation, Coding Platform
+            Assistance, Password Reset, and more. Our mission is to ensure that
+            every citizen can access government services easily, quickly, and
+            without unnecessary hassle. With personalized guidance, attention to
+            detail, and professional expertise, we help you fill forms
+            correctly, gather the required documents, and complete applications
+            efficiently.
+          </p>
+          <p id="home-desc">
+            AtCyber vishal CAFÉ, we believe in transparency, reliability, and
+            customer satisfaction. Whether it’s a personal application, family
+            benefit, educational form, or digital support, we are here to assist
+            you at every step. Trust us to make government and digital services
+            simple, accessible, and stress-free for everyone.
+          </p>
+          <button onclick="scrollToSection('services')">View Services</button>
+        </div>
+      </div>
+    </section>
+    <a href="https://wa.me/9579441517" class="whatsapp-btn notranslate">🟢 Whatsapp Chat</a>
     <section id="services">
-      <h2>Our Services</h2>
+    <h2 id="services-title">Our Services</h2>
       <div class="service-list">
         <div class="service-item">
           <img src="img/addar.png" />
@@ -339,6 +512,11 @@
           <h3>Computer Virus Cleaning Services</h3>
           <p>Apply & Make Computer Fast And Working</p>
         </div>
+        <div class="service-item">
+  <img src="img/password.jpg" alt="Password Reset Service" />
+  <h3>Password Reset Service</h3>
+  <p>Recover & Reset Forgotten Passwords Safely & Securely</p>
+</div>
 
         <div class="service-item">
           <img src="img/resume.jpg" />
@@ -374,25 +552,32 @@
           <h3>Computer Software Services</h3>
           <p>
             ● APP installation<br />● Coding platforms<br />● Password Reset<br />●
-            Removal
+            Removal <br> ●Pen Drive & Computer Drive Cleaning
           </p>
         </div>
-         <div class="service-item">
+        <div class="service-item">
           <img src="img/scholoar.jpg" />
           <h3>Scholarship Services</h3>
-          <p>Education Scholoarship </p>
+          <p>Education Scholoarship</p>
         </div>
         <div class="service-item">
           <img src="img/car insurance.jpg" />
           <h3>Car Insurance Services</h3>
           <p>New Insurance & Renewal Services</p>
         </div>
-      </div>
+  <div class="service-list">
+        <div class="service-item">
+          <img src="img/UDID.jpg" />
+          <h3>unique Disability ID (UDID)</h3>
+          <p>New & E-KYC</p>
+        </div>
+    </div>
     </section>
+  
 
     <section id="forms">
-      <h2>Required Documents</h2>
-
+      <h2><mark>Required Documents</mark></h2>
+      
       <div class="form-list">
         <!-- YOUR ORIGINAL CARDS (UNCHANGED) -->
         <div class="form-item">
@@ -404,141 +589,163 @@
           </ul>
         </div>
 
-       <div class="form-item">
-<h3>Learning License (LL)</h3>
-<ul class="requirements">
-<li>🆔 Aadhaar Card / ID Proof</li>
-<li>🏠 Address Proof</li>
-<li>🎂 Age Proof (Birth Certificate / 10th Marksheet)</li>
-<li>📸 Passport Size Photos</li>
-<li>📱 Mobile Number</li>
-<li>💻 Online Test (Basic Traffic Rules)</li>
-</ul>
-</div>
-<div class="form-item">
-<h3>Driving License (DL)</h3>
-<ul class="requirements">
-<li>📄 Learning License (LL)</li>
-<li>📸 Passport Size Photos</li>
-<li>🆔 Aadhaar Card / ID Proof</li>
-<li>🏠 Address Proof</li>
-<li>🩺 Medical Certificate (if required)</li>
-<li>🚗 Driving Test (RTO)</li>
-<li>📱 Mobile Number</li>
-</ul>
-</div>
-        
-     <div class="form-item">
-<h3>Computer Virus Cleaning</h3>
-<ul class="requirements">
-<li>💻 Laptop / Computer</li>
-<li>🔑 System Password (if any)</li>
-<li>📱 Mobile Number</li>
-<li>💾 Backup of Important Data (recommended)</li>
-<li>🌐 Internet Connection (if needed)</li>
-</ul>
-</div>
-       <div class="form-item">
-<h3>Computer Software Services</h3>
-<ul class="requirements">
-<li>💻 Laptop / Computer</li>
-<li>🔑 System Password (if any)</li>
-<li>📱 Mobile Number</li>
-<li>📧 Email ID (for software login)</li>
-<li>💿 Software / App Name</li>
-<li>🌐 Internet Connection (if required)</li>
-<li>💾 Backup of Important Data (recommended)</li>
-</ul>
-</div>
-       <div class="form-item">
-<h3>Resume Service</h3>
-<ul class="requirements">
-<li>👤 Full Name</li>
-<li>📱 Mobile Number</li>
-<li>📧 Email ID</li>
-<li>🏠 Address</li>
-<li>🎓 Education Details</li>
-<li>💼 Work Experience (if any)</li>
-<li>🛠 Skills</li>
-<li>🏆 Achievements / Certificates</li>
-<li>📸 Passport Size Photo (optional)</li>
-</ul>
-</div>
-    
-      <div class="form-item">
-<h3>Government Exam Forms</h3>
-<ul class="requirements">
-<li>📸 Passport Size Photos</li>
-<li>🆔 Aadhaar Card / ID Proof</li>
-<li>📱 Mobile Number (Active)</li>
-<li>📧 Email ID</li>
-<li>🎓 Education Certificates (10th / 12th / Degree)</li>
-<li>✍️ Signature (Scan)</li>
-<li>🏠 Address Details</li>
-<li>💳 Online Payment (if required)</li>
-</ul>
+        <div class="form-item">
+          <h3>Learning License (LL)</h3>
+          <ul class="requirements">
+            <li>🆔 Aadhaar Card / ID Proof</li>
+            <li>🏠 Address Proof</li>
+            <li>🎂 Age Proof (Birth Certificate / 10th Marksheet)</li>
+            <li>📸 Passport Size Photos</li>
+            <li>📱 Mobile Number</li>
+            <li>💻 Online Test (Basic Traffic Rules)</li>
+          </ul>
+        </div>
+        <div class="form-item">
+          <h3>Driving License (DL)</h3>
+          <ul class="requirements">
+            <li>📄 Learning License (LL)</li>
+            <li>📸 Passport Size Photos</li>
+            <li>🆔 Aadhaar Card / ID Proof</li>
+            <li>🏠 Address Proof</li>
+            <li>🩺 Medical Certificate (if required)</li>
+            <li>🚗 Driving Test (RTO)</li>
+            <li>📱 Mobile Number</li>
+          </ul>
+        </div>
+
+        <div class="form-item">
+          <h3>Computer Virus Cleaning</h3>
+          <ul class="requirements">
+            <li>💻 Laptop / Computer</li>
+            <li>🔑 System Password (if any)</li>
+            <li>📱 Mobile Number</li>
+            <li>💾 Backup of Important Data (recommended)</li>
+            <li>🌐 Internet Connection (if needed)</li>
+          </ul>
+        </div>
+        <div class="form-item">
+          <h3>Computer Software Services</h3>
+          <ul class="requirements">
+            <li>💻 Laptop / Computer</li>
+            <li>🔑 System Password (if any)</li>
+            <li>📱 Mobile Number</li>
+            <li>📧 Email ID (for software login)</li>
+            <li>💿 Software / App Name</li>
+            <li>🌐 Internet Connection (if required)</li>
+            <li>💾 Backup of Important Data (recommended)</li>
+          </ul>
+        </div>
+        <div class="form-item">
+  <h3>Password Reset / Account Recovery</h3>
+  <ul class="requirements">
+    <li>🆔 Aadhaar Card / ID Proof</li>
+    <li>📱 Registered Mobile Number</li>
+    <li>📧 Email ID Access</li>
+    <li>🔐 Old Account Details (if known)</li>
+    <li>💻 Device Ownership Proof (if needed)</li>
+    <li>🔑 Security Questions (if available)</li>
+  </ul>
 </div>
         <div class="form-item">
-<h3>RTE Form</h3>
-<ul class="requirements">
-<li>👶 Child Birth Certificate</li>
-<li>🆔 Child Aadhaar Card</li>
-<li>👨‍👩‍👧 Parent Aadhaar Card</li>
-<li>🏠 Address Proof</li>
-<li>📱 Mobile Number</li>
-<li>📄 Income Certificate</li>
-<li>📸 Passport Size Photo</li>
-</ul>
-</div>
+          <h3>Resume Service</h3>
+          <ul class="requirements">
+            <li>👤 Full Name</li>
+            <li>📱 Mobile Number</li>
+            <li>📧 Email ID</li>
+            <li>🏠 Address</li>
+            <li>🎓 Education Details</li>
+            <li>💼 Work Experience (if any)</li>
+            <li>🛠 Skills</li>
+            <li>🏆 Achievements / Certificates</li>
+            <li>📸 Passport Size Photo (optional)</li>
+          </ul>
+        </div>
+
         <div class="form-item">
-<h3>7/12 (Satbara)</h3>
-<ul class="requirements">
-<li>🆔 Owner Aadhaar Card</li>
-<li>📱 Mobile Number</li>
-<li>📍 Land Details (Gat Number / Survey Number)</li>
-<li>🏡 Village Name</li>
-<li>📄 Previous 7/12 Copy (if available)</li>
-</ul>
-</div>
+          <h3>Government Exam Forms</h3>
+          <ul class="requirements">
+            <li>📸 Passport Size Photos</li>
+            <li>🆔 Aadhaar Card / ID Proof</li>
+            <li>📱 Mobile Number (Active)</li>
+            <li>📧 Email ID</li>
+            <li>🎓 Education Certificates (10th / 12th / Degree)</li>
+            <li>✍️ Signature (Scan)</li>
+            <li>🏠 Address Details</li>
+            <li>💳 Online Payment (if required)</li>
+          </ul>
+        </div>
         <div class="form-item">
-<h3>PAN Card</h3>
-<ul class="requirements">
-<li>📸 Passport Size Photo</li>
-<li>🆔 Identity Proof (Aadhaar / Voter ID)</li>
-<li>🏠 Address Proof</li>
-<li>🎂 Date of Birth Proof</li>
-<li>✍️ Signature</li>
-<li>📱 Mobile Number</li>
-</ul>
-</div>
+          <h3>RTE Form</h3>
+          <ul class="requirements">
+            <li>👶 Child Birth Certificate</li>
+            <li>🆔 Child Aadhaar Card</li>
+            <li>👨‍👩‍👧 Parent Aadhaar Card</li>
+            <li>🏠 Address Proof</li>
+            <li>📱 Mobile Number</li>
+            <li>📄 Income Certificate</li>
+            <li>📸 Passport Size Photo</li>
+          </ul>
+        </div>
         <div class="form-item">
-<h3>Scholarship</h3>
-<ul class="requirements">
-<li>🎓 Student Aadhaar Card</li>
-<li>📱 Mobile Number</li>
-<li>📧 Email ID</li>
-<li>🏫 Bonafide Certificate (School/College)</li>
-<li>📄 Previous Year Marksheet</li>
-<li>🏦 Bank Passbook (Student / Parent)</li>
-<li>🏠 Address Proof</li>
-<li>📄 Income Certificate</li>
-<li>📸 Passport Size Photo</li>
-<li>📋 Caste Certificate (if applicable)</li>
-<li>♿ Disability Certificate (if applicable)</li>
-<li>🏫 School/College must be recognized</li>
-</ul>
-</div>
-<div class="form-item">
-<h3>Vehicle Insurance</h3>
-<ul class="requirements">
-<li>🚗 Vehicle RC Book</li>
-<li>🆔 Owner Aadhaar Card / ID Proof</li>
-<li>📱 Mobile Number</li>
-<li>📧 Email ID</li>
-<li>📄 Previous Insurance Policy (if renewal)</li>
-<li>🔢 Vehicle Number</li>
-<li>🏠 Address Details</li>
-</ul>
+          <h3>7/12 (Satbara)</h3>
+          <ul class="requirements">
+            <li>🆔 Owner Aadhaar Card</li>
+            <li>📱 Mobile Number</li>
+            <li>📍 Land Details (Gat Number / Survey Number)</li>
+            <li>🏡 Village Name</li>
+            <li>📄 Previous 7/12 Copy (if available)</li>
+          </ul>
+        </div>
+        <div class="form-item">
+          <h3>PAN Card</h3>
+          <ul class="requirements">
+            <li>📸 Passport Size Photo</li>
+            <li>🆔 Identity Proof (Aadhaar / Voter ID)</li>
+            <li>🏠 Address Proof</li>
+            <li>🎂 Date of Birth Proof</li>
+            <li>✍️ Signature</li>
+            <li>📱 Mobile Number</li>
+          </ul>
+        </div>
+        <div class="form-item">
+          <h3>Scholarship</h3>
+          <ul class="requirements">
+            <li>🎓 Student Aadhaar Card</li>
+            <li>📱 Mobile Number</li>
+            <li>📧 Email ID</li>
+            <li>🏫 Bonafide Certificate (School/College)</li>
+            <li>📄 Previous Year Marksheet</li>
+            <li>🏦 Bank Passbook (Student / Parent)</li>
+            <li>🏠 Address Proof</li>
+            <li>📄 Income Certificate</li>
+            <li>📸 Passport Size Photo</li>
+            <li>📋 Caste Certificate (if applicable)</li>
+            <li>♿ Disability Certificate (if applicable)</li>
+            <li>🏫 School/College must be recognized</li>
+          </ul>
+        </div>
+        <div class="form-item">
+          <h3>Vehicle Insurance</h3>
+          <ul class="requirements">
+            <li>🚗 Vehicle RC Book</li>
+            <li>🆔 Owner Aadhaar Card / ID Proof</li>
+            <li>📱 Mobile Number</li>
+            <li>📧 Email ID</li>
+            <li>📄 Previous Insurance Policy (if renewal)</li>
+            <li>🔢 Vehicle Number</li>
+            <li>🏠 Address Details</li>
+          </ul>
+        </div>
+        <div class="form-item">
+  <h3>UDID Card</h3>
+  <ul class="requirements">
+    <li>🆔 Aadhaar Card / ID Proof</li>
+    <li>🏠 Address Proof</li>
+    <li>📸 Passport Size Photo</li>
+    <li>🩺 Disability Certificate (Govt. Hospital)</li>
+    <li>📱 Mobile Number</li>
+    <li>📧 Email ID (Optional)</li>
+  </ul>
 </div>
       </div>
 
@@ -548,153 +755,584 @@
         class="form-list"
         style="display: none; margin-top: 30px"
       >
-      <div class="form-item">
-<h3>PMJAY (Ayushman Bharat)</h3>
-<ul class="requirements">
-<li>🆔 Aadhaar Card</li>
-<li>📄 Ration Card</li>
-<li>📱 Mobile Number</li>
-<li>👨‍👩‍👧 Family Details</li>
-<li>🏠 Address Details</li>
-<li>📸 Passport Size Photo</li>
-</ul>
-</div>
         <div class="form-item">
-<h3>Ladli Bahin Yojana</h3>
-<ul class="requirements">
-<li>👩 Applicant Aadhaar Card</li>
-<li>🏦 Bank Passbook (linked with Aadhaar)</li>
-<li>📱 Mobile Number</li>
-<li>🏠 Address Proof</li>
-<li>📄 Income Certificate</li>
-<li>👨‍👩‍👧 Family Details</li>
-<li>📸 Passport Size Photo</li>
-</ul>
-</div>
-<div class="form-item">
-<h3>Bandhkam Kamgar Yojana</h3>
-<ul class="requirements">
-<li>🆔 Aadhaar Card</li>
-<li>📱 Mobile Number</li>
-<li>📄 90 Days Work Certificate (Construction Work Proof)</li>
-<li>🏦 Bank Passbook</li>
-<li>📸 Passport Size Photo</li>
-<li>🏠 Address Proof</li>
-<li>👷 Labour Registration Form</li>
-</ul>
-</div>
-<div class="form-item">
-<h3>PM Kisan Yojana</h3>
-<ul class="requirements">
-<li>🆔 Aadhaar Card</li>
-<li>🏦 Bank Passbook</li>
-<li>📱 Mobile Number</li>
-<li>📍 Land Ownership Details</li>
-<li>📄 7/12 (Satbara) / Land Record</li>
-<li>🏠 Address Details</li>
-<li>📸 Passport Size Photo</li>
-</ul>
-</div>
-<div class="form-item">
-<h3>PM Ujjwala Yojana (LPG Connection)</h3>
-<ul class="requirements">
-<li>👩 Applicant Aadhaar Card (Woman of household)</li>
-<li>📄 Ration Card (BPL / Eligible family)</li>
-<li>📱 Mobile Number</li>
-<li>🏠 Address Proof</li>
-<li>🏦 Bank Account Details</li>
-<li>📸 Passport Size Photo</li>
-<li>📝 Self Declaration Form</li>
-</ul>
-</div>
-<div class="form-item">
-<h3>PM Fasal Bima Yojana</h3>
-<ul class="requirements">
-<li>🆔 Aadhaar Card</li>
-<li>🏦 Bank Passbook</li>
-<li>📱 Mobile Number</li>
-<li>📍 Land Details (Survey / Gat Number)</li>
-<li>📄 7/12 (Satbara) / Land Record</li>
-<li>🌾 Crop Details (Which crop you are growing)</li>
-<li>📸 Passport Size Photo</li>
-</ul>
-</div>
+          <h3>PMJAY (Ayushman Bharat)</h3>
+          <ul class="requirements">
+            <li>🆔 Aadhaar Card</li>
+            <li>📄 Ration Card</li>
+            <li>📱 Mobile Number</li>
+            <li>👨‍👩‍👧 Family Details</li>
+            <li>🏠 Address Details</li>
+            <li>📸 Passport Size Photo</li>
+          </ul>
+        </div>
+        <div class="form-item">
+          <h3>Ladli Bahin Yojana</h3>
+          <ul class="requirements">
+            <li>👩 Applicant Aadhaar Card</li>
+            <li>🏦 Bank Passbook (linked with Aadhaar)</li>
+            <li>📱 Mobile Number</li>
+            <li>🏠 Address Proof</li>
+            <li>📄 Income Certificate</li>
+            <li>👨‍👩‍👧 Family Details</li>
+            <li>📸 Passport Size Photo</li>
+          </ul>
+        </div>
+        <div class="form-item">
+          <h3>Bandhkam Kamgar Yojana</h3>
+          <ul class="requirements">
+            <li>🆔 Aadhaar Card</li>
+            <li>📱 Mobile Number</li>
+            <li>📄 90 Days Work Certificate (Construction Work Proof)</li>
+            <li>🏦 Bank Passbook</li>
+            <li>📸 Passport Size Photo</li>
+            <li>🏠 Address Proof</li>
+            <li>👷 Labour Registration Form</li>
+          </ul>
+        </div>
+        <div class="form-item">
+          <h3>PM Kisan Yojana</h3>
+          <ul class="requirements">
+            <li>🆔 Aadhaar Card</li>
+            <li>🏦 Bank Passbook</li>
+            <li>📱 Mobile Number</li>
+            <li>📍 Land Ownership Details</li>
+            <li>📄 7/12 (Satbara) / Land Record</li>
+            <li>🏠 Address Details</li>
+            <li>📸 Passport Size Photo</li>
+          </ul>
+        </div>
+        <div class="form-item">
+          <h3>PM Ujjwala Yojana (LPG Connection)</h3>
+          <ul class="requirements">
+            <li>👩 Applicant Aadhaar Card (Woman of household)</li>
+            <li>📄 Ration Card (BPL / Eligible family)</li>
+            <li>📱 Mobile Number</li>
+            <li>🏠 Address Proof</li>
+            <li>🏦 Bank Account Details</li>
+            <li>📸 Passport Size Photo</li>
+            <li>📝 Self Declaration Form</li>
+          </ul>
+        </div>
+        <div class="form-item">
+          <h3>PM Fasal Bima Yojana</h3>
+          <ul class="requirements">
+            <li>🆔 Aadhaar Card</li>
+            <li>🏦 Bank Passbook</li>
+            <li>📱 Mobile Number</li>
+            <li>📍 Land Details (Survey / Gat Number)</li>
+            <li>📄 7/12 (Satbara) / Land Record</li>
+            <li>🌾 Crop Details (Which crop you are growing)</li>
+            <li>📸 Passport Size Photo</li>
+          </ul>
+        </div>
       </div>
     </section>
-<section id="contact">
-  <h2>Contact Us</h2>
-  <div class="form-list">
-    <div class="form-item">
-      <form action="https://formspree.io/f/mqeyplel" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Email Address" required />
-        <input type="tel" name="phone" placeholder="Phone Number" required />
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </div>
-</section>
+    <section id="contact">
+     <h2 id="contact-title">Contact Us</h2>
+      <div class="form-list">
+        <div class="form-item">
+          <form action="https://formspree.io/f/mqeyplel" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              rows="5"
+              required
+            ></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
 <section id="appointment">
-  <h2>Book an Appointment</h2>
+  <h2 id="appointment-title">Book an Appointment</h2>
+
   <div class="form-list">
     <div class="form-item">
-      <form action="https://formspree.io/f/mqeyplel" method="POST">
+      <form action="https://formspree.io/f/mqeyplel" method="POST" id="bookingForm">
+
+        <!-- User Info -->
+         <input type="hidden" name="paymentStatus" id="hiddenPaymentStatus">
         <input type="text" name="name" placeholder="Full Name" required />
         <input type="email" name="email" placeholder="Email Address" required />
         <input type="tel" name="phone" placeholder="Phone Number" required />
-        
+
+        <!-- Service -->
         <label for="service">Select Service:</label>
         <select name="service" id="service" required>
           <option value="">-- Choose a Service --</option>
-          <option value="aadhaar">Aadhaar Services</option>
-          <option value="license">License Services</option>
-          <option value="form">Form Submission</option>
-          <option value="virus">Virus Cleaning</option>
-          <option value="PAN">PAN card services</option>
-          <option value="Resume">Resume Services</option>
-          <option value="RTE">RTE Form Services</ption>
-          <option value="software">Computer Software</option>
-          <option value="Scholarships">Scholarships</option>
-          <option value="Car Insurance">Car Insurance</option>
-          <option value="Government Exam">Government Exam Form Services</option>
-          <option value="7/12">7/12 Form Services</option>
-          <option value="PMJAY">PMJAY Ayushman Bharat Yojana</option>
-          <option value="Ladli Bahin Yojana">Ladli Bahin Yojana</option>
-          <option value="PM Kisan Yojana">PM Kisan Yojana</option>
-          <option value="PM Ujjwala Yojana (LPG Connection)">PM Ujjwala Yojana (LPG Connection)</option>
-          <option value="PM Fasal Bima Yojana">PM Fasal Bima Yojana</option>
-          <option value="Bandhkam Kamgar Yojana">Bandhkam Kamgar Yojana</option>
-          
+          <option value="150">Aadhaar Services (₹150)</option>
+          <option value="800">License Services (₹800)</option>
+          <option value="500">Virus Cleaning (₹500)</option>
+          <option value="1800">PAN Card Services (₹1800)</option>
+          <option value="150">Resume Services (₹150)</option>
+          <option value="300">RTE Form Services (₹300)</option>
+          <option value="200">Computer Software (₹200)</option>
+          <option value="1400">Scholarships (₹1400)</option>
+          <option value="1000">Car Insurance (₹1000)</option>
+          <option value="300">UDID Card Service (₹300)</option>
+          <option value="100">7/12 Form Services (₹100)</option>
         </select>
-        
+
+        <!-- Amount Display -->
+        <p id="amountText" style="color:green; font-weight:bold;"></p>
+<p id="advanceText" style="color:orange; font-weight:bold;"></p>
+        <!-- Payment Option -->
+        <label>Payment Option:</label>
+        <select id="paymentOption" onchange="handlePaymentOption()" required>
+          <option value="">-- Select Payment Option --</option>
+          <option value="now">Pay Full Now</option>
+          <option value="later">Pay at Service Time (Advance Required)</option>
+        </select>
+
+        <!-- Payment Buttons -->
+        <button type="button" id="payNowBtn" onclick="payNow()" style="display:none;">
+          💳 Pay Full Amount
+        </button>
+
+        <button type="button" id="advanceBtn" onclick="payAdvance()" style="display:none;">
+          💳 Pay Advance (30%)
+        </button>
+
+        <!-- QR Code -->
+        <div class="qr-box" id="qrBox" style="display:none; text-align:center;">
+          <h3>Scan & Pay</h3>
+          <img src="img/payment.png" alt="UPI QR Code" width="200">
+          <p>Scan using any UPI app</p>
+
+          <!-- Payment Status -->
+          <p id="paymentStatus" style="color:red; font-weight:bold;">
+            Payment Status: Pending ❌
+          </p>
+        </div>
+
+        <!-- Upload Screenshot -->
+        <div id="paymentProof" style="display:none;">
+          <label>Upload Payment Screenshot:</label>
+          <input type="file" id="paymentFile" required />
+        </div>
+
+        <!-- ✅ IMPORTANT BUTTON (YOU WERE MISSING THIS) -->
+        <button type="button" id="paidBtn" onclick="confirmPayment()" style="display:none;">
+          ✅ I Have Paid
+        </button>
+
+        <!-- Date & Time -->
         <label for="date">Select Date:</label>
         <input type="date" name="date" id="date" required />
-        
+
         <label for="time">Select Time:</label>
         <input type="time" name="time" id="time" required />
-        
-        <button type="submit">Book Appointment</button>
+
+        <!-- Submit -->
+        <button type="submit" id="submitBtn" disabled>
+          Book Appointment
+        </button>
+<a id="whatsappBtn" target="_blank" style="display:none;">
+  <button type="button">📲 Confirm on WhatsApp</button>
+</a>
+        <!-- Note -->
+        <p style="color:red; font-size:13px;">
+          *Advance payment is mandatory to confirm booking
+        </p>
+
       </form>
     </div>
   </div>
 </section>
-    <script>
-      function scrollToSection(id) {
-        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+<section id="fees">
+  <h2>💰 Service Charges</h2>
+
+  <div class="fees-grid">
+
+    <div class="fee-card popular">
+     <div class="tag">🔥 Popular</div>
+      <h3>Aadhaar Services</h3>
+      <p>Update / Correction</p>
+      <h4>₹100 - ₹150</h4>
+    </div>
+
+    <div class="fee-card">
+      <h3>PAN Card</h3>
+      <p>New / Correction</p>
+      <h4>₹1400 - ₹1800</h4>
+    </div>
+
+    <div class="fee-card">
+      <h3>Driving License</h3>
+      <p>LL / DL Apply</p>
+      <h4>₹800 - ₹900</h4>
+    </div>
+    <div class="fee-card">
+      <h3>Resume Making</h3>
+      <p>Professional Resume</p>
+      <h4>₹100 - ₹150</h4>
+    </div>
+
+    <div class="fee-card">
+      <h3>Virus Cleaning</h3>
+      <p>Full System Clean</p>
+      <h4>₹300 - ₹500</h4>
+    </div>
+
+    <div class="fee-card">
+      <h3>Software Installation</h3>
+      <p>Apps / Windows</p>
+      <h4>₹150 - ₹200</h4>
+    </div>
+<div class="fee-card popular">
+  <div class="tag">🔥 Popular</div>
+  <h3>Password Reset</h3>
+  <p>Email / Mobile / Account Recovery</p>
+  <h4>₹100 - ₹300</h4>
+  <p class="note">*Charges may vary depending on account complexity</p>
+  <div class="booking-section">
+    <button onclick="scrollToAppointment()">Book Now</button>
+    <div class="timer" id="timer1">00:10:00</div>
+  </div>
+</div>
+
+<div class="fee-card popular">
+  <div class="tag">🔥 Popular</div>
+  <h3>Combo Offer</h3>
+  <p>Password Reset + Software Install</p>
+  <h4>₹350</h4>
+  <div class="booking-section">
+    <button onclick="scrollToAppointment()">Book Now</button>
+    <div class="timer" id="timer2">00:10:00</div>
+  </div>
+</div>
+    <div class="fee-card">
+      <h3>7/12 (Satbara)</h3>
+      <p>Land Record</p>
+      <h4>₹60 - ₹100</h4>
+    </div>
+
+    <div class="fee-card">
+      <h3>Scholarship Forms</h3>
+      <p>Student Services</p>
+      <h4>₹1300 - ₹1400</h4>
+    </div>
+
+    <div class="fee-card">
+      <h3>Car Insurance</h3>
+      <p>New / Renewal</p>
+      <h4>₹800 - ₹1000</h4>
+    </div>
+
+    <div class="fee-card">
+  <h3>UDID Card</h3>
+  <p>New / Update</p>
+  <h4>₹300 - ₹500</h4>
+</div>
+
+     <div class="fee-card">
+      <h3>PMJAY (Ayushman Bharat)</h3>
+      <h4>₹1300 - ₹1400</h4>
+    </div>
+    
+   <div class="fee-card">
+      <h3>Ladli Bahin Yojana</h3>
+      <h4>₹1200 - ₹1300</h4>
+    </div>
+
+       <div class="fee-card">
+      <h3>E-KYC (Ladli Bahin Yojana)</h3>
+      <h4>₹100</h4>
+    </div>
+     <div class="fee-card">
+      <h3>Bandhkam Kamgar Yojana</h3>
+      <h4>₹1200 - ₹1300</h4>
+    </div>
+
+    <div class="fee-card">
+      <h3>PM Kisan Yojana</h3>
+      <h4>₹1200 - ₹1300</h4>
+    </div>
+    <div class="fee-card">
+      <h3>PM Ujjwala Yojana (LPG Connection)</h3>
+      <h4>₹1200 - ₹1300</h4>
+    </div>
+    <div class="fee-card">
+      <h3>PM Fasal Bima Yojana</h3>
+      <h4>₹1250 - ₹1300</h4> 
+      </div>
+
+        <div class="fee-card">
+      <h3>UDID (unique Disability IdentityCard )</h3>
+      <h4>₹1250 - ₹1300</h4> 
+      </div>
+  </div>
+</section>
+
+    <footer>
+      <p>© 2026 Cyber Vishal CAFÉ | All Rights Reserved</p>
+    </footer>
+<script>
+// ✅ Smooth scroll
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+
+// ✅ Toggle Yojana
+function showYojana() {
+  let box = document.getElementById("yojanaForms");
+  box.style.display = (box.style.display === "grid") ? "none" : "grid";
+  box.scrollIntoView({ behavior: "smooth" });
+}
+
+// ✅ Counter
+const counters = document.querySelectorAll(".counter");
+counters.forEach((counter) => {
+  let update = () => {
+    let target = +counter.getAttribute("data-target");
+    let count = +counter.innerText;
+    let speed = target / 100;
+
+    if (count < target) {
+      counter.innerText = Math.ceil(count + speed);
+      setTimeout(update, 20);
+    } else {
+      counter.innerText = target + "+";
+    }
+  };
+  update();
+});
+
+// ✅ Google Translate
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,hi,mr',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+
+// ✅ Auto language
+function autoTranslate() {
+  let userLang = localStorage.getItem("lang");
+
+  if (!userLang) {
+    let browserLang = navigator.language;
+    if (browserLang.includes("hi")) userLang = "hi";
+    else if (browserLang.includes("mr")) userLang = "mr";
+    else userLang = "en";
+  }
+
+  let interval = setInterval(() => {
+    let select = document.querySelector(".goog-te-combo");
+    if (select) {
+      select.value = userLang;
+      select.dispatchEvent(new Event("change"));
+      clearInterval(interval);
+    }
+  }, 500);
+}
+
+// ✅ Change language
+function changeLang(lang) {
+  localStorage.setItem("lang", lang);
+
+  let select = document.querySelector(".goog-te-combo");
+  if (select) {
+    select.value = lang;
+    select.dispatchEvent(new Event("change"));
+  }
+}
+
+// ✅ Payment option
+function handlePaymentOption() {
+  let option = document.getElementById("paymentOption").value;
+
+  document.getElementById("payNowBtn").style.display = "none";
+  document.getElementById("advanceBtn").style.display = "none";
+  document.getElementById("qrBox").style.display = "none";
+  document.getElementById("paymentProof").style.display = "none";
+
+  let advanceText = document.getElementById("advanceText");
+
+  if (option === "now") {
+    document.getElementById("payNowBtn").style.display = "block";
+    document.getElementById("qrBox").style.display = "block";
+    if (advanceText) advanceText.style.display = "none";
+  } 
+  else if (option === "later") {
+    document.getElementById("advanceBtn").style.display = "block";
+    document.getElementById("qrBox").style.display = "block";
+    if (advanceText) advanceText.style.display = "block";
+  }
+}
+
+// ✅ Pay full
+function payNow() {
+  let amount = document.getElementById("service").value;
+
+  if (!amount) {
+    alert("Select service first!");
+    return;
+  }
+
+  let url = `upi://pay?pa=yourupi@upi&pn=Cyber Vishal Cafe&am=${amount}&cu=INR`;
+  window.location.href = url;
+
+  showProofSection();
+}
+
+// ✅ Pay advance
+function payAdvance() {
+  let fullAmount = parseInt(document.getElementById("service").value);
+
+  if (!fullAmount) {
+    alert("Select service first!");
+    return;
+  }
+
+  let advanceAmount = Math.floor(fullAmount * 0.3);
+
+  let url = `upi://pay?pa=yourupi@upi&pn=Cyber Vishal Cafe&am=${advanceAmount}&cu=INR`;
+  window.location.href = url;
+
+  showProofSection();
+}
+
+// ✅ Show upload
+function showProofSection() {
+  document.getElementById("paymentProof").style.display = "block";
+}
+
+// ✅ Confirm payment (FINAL FIXED)
+function confirmPayment() {
+  let fileInput = document.getElementById("paymentFile");
+
+  if (!fileInput || fileInput.files.length === 0) {
+    alert("Upload payment screenshot!");
+    return;
+  }
+
+  // Status update
+  let status = document.getElementById("paymentStatus");
+  status.innerText = "Payment Status: Done ✅";
+  status.style.color = "green";
+
+  // Store for email
+  let hidden = document.getElementById("hiddenPaymentStatus");
+  if (hidden) hidden.value = "Done";
+
+  // Enable submit
+  document.getElementById("submitBtn").disabled = false;
+
+  // WhatsApp message
+  let name = document.querySelector("input[name='name']").value;
+  let phone = document.querySelector("input[name='phone']").value;
+  let service = document.getElementById("service").selectedOptions[0].text;
+
+  let msg = `Hello, I have completed payment.%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Service: ${service}`;
+
+  let waLink = `https://wa.me/9579441517?text=${msg}`;
+
+  let waBtn = document.getElementById("whatsappBtn");
+  if (waBtn) {
+    waBtn.href = waLink;
+    waBtn.style.display = "block";
+  }
+
+  alert("Payment done! Click WhatsApp to confirm.");
+}
+
+// ✅ On load
+window.addEventListener("load", () => {
+  autoTranslate();
+
+  let loader = document.getElementById("loader");
+  if (loader) loader.style.display = "none";
+
+  let service = document.getElementById("service");
+
+  if (service) {
+    service.addEventListener("change", function() {
+      let amount = parseInt(this.value);
+
+      if (amount) {
+        let advance = Math.floor(amount * 0.3);
+
+        document.getElementById("amountText").innerText =
+          "Total Amount: ₹" + amount;
+
+        document.getElementById("advanceText").innerText =
+          "Advance (30%): ₹" + advance;
+      } else {
+        document.getElementById("amountText").innerText = "";
+        document.getElementById("advanceText").innerText = "";
       }
+    });
+  }
+});
+</script>
 
-      function showYojana() {
-        let box = document.getElementById("yojanaForms");
+<!-- Google Translate -->
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-        if (box.style.display === "none" || box.style.display === "") {
-          box.style.display = "grid";
-        } else {
-          box.style.display = "none";
-        }
+<!-- Auto Reset after submit -->
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function() {
+  setTimeout(() => {
+    this.reset();
 
-        box.scrollIntoView({ behavior: "smooth" });
-      }
-    </script>
-  </body>
+    document.getElementById("paymentStatus").innerText = "Payment Status: Pending ❌";
+    document.getElementById("paymentStatus").style.color = "red";
+
+    document.getElementById("submitBtn").disabled = true;
+  }, 2000);
+});
+</script>
+<script>
+  function startTimer(duration, displayId) {
+  let timer = duration, minutes, seconds;
+  const display = document.getElementById(displayId);
+  const interval = setInterval(() => {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+     
+    display.textContent = minutes + ":" + seconds;
+
+    if (--timer < 0) {
+      clearInterval(interval);
+      display.textContent = "Offer Expired";
+      document.getElementById("bookNowBtn1").disabled = true; // disable button
+    }
+  }, 1000);
+}
+
+// Example: start 10-minute timer for first card
+startTimer(10 * 60, "timer1");
+
+// Repeat for other cards with their unique IDs
+// startTimer(5 * 60, "timer2");
+</script>
+<script>
+  function scrollToAppointment() {
+  document.getElementById('appointment').scrollIntoView({ 
+    behavior: 'smooth' 
+  });
+}
+</script>
+</body>
 </html>
