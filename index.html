@@ -1,14 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
+  
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="img/icon.png" />
+    <link rel="icon" type="image/png" href="img/V-tech logo design.png" />
     <link rel="icon" sizes="32x32" href="logo-32.png" />
     <link rel="icon" sizes="192x192" href="logo-192.png" />
     <link rel="apple-touch-icon" href="logo-192.png" />
-    <title>CAFÉ Service Center</title>
-
+    <title class="notranslate">CAFÉ Service Center</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
@@ -17,263 +18,276 @@
       href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
       rel="stylesheet"
     />
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Montserrat", sans-serif;
-      }
-      body {
-        background: #f0f4f8;
-        color: #333;
-        scroll-behavior: smooth;
-      }
-      header {
-        background: #004aad;
-        color: white;
-        padding: 20px 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: sticky;
-        top: 0;
-      }
-      nav a {
-        margin-left: 20px;
-        color: white;
-        font-weight: 600;
-      }
-      nav a:hover {
-        color: #ffda44;
-      }
-      .hero {
-        height: 80vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background:
-          linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
-          url("https://images.unsplash.com/photo-1581091215369-9334b7f3ee1b");
-        background-size: cover;
-        text-align: center;
-      }
-      .hero h2 {
-        font-size: 45px;
-        margin-bottom: 10px;
-      }
-      .hero p {
-        font-size: 18px;
-      }
-      .hero button {
-        padding: 15px 30px;
-        background: #004aad;
-        color: white;
-        border: none;
-        border-radius: 30px;
-        margin-top: 20px;
-        cursor: pointer;
-      }
-      .hero button:hover {
-        background: #002f7a;
-      }
-      section {
-        padding: 70px 40px;
-      }
-      h2 {
-        text-align: center;
-        margin-bottom: 40px;
-        color: #004aad;
-      }
-      .service-list,
-      .form-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 25px;
-      }
-      .service-item,
-      .form-item {
-        background: white;
-        padding: 20px;
-        border-radius: 15px;
-        text-align: center;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        transition: 0.3s;
-      }
-      .service-item:hover,
-      .form-item:hover {
-        transform: translateY(-10px);
-      }
-      img {
-        width: 80px;
-        height: 80px;
-        object-fit: contain;
-        margin-bottom: 10px;
-      }
-      .requirements {
-        display: block;
-        margin-top: 15px;
-        text-align: left;
-        padding-left: 15px;
-        color: #004aad;
-        font-weight: 500;
-      }
-      .form-item ul li {
-        background: #f0f6ff;
-        padding: 10px;
-        border-radius: 10px;
-        margin-bottom: 8px;
-        transition: 0.3s;
-      }
-      .form-item ul li:hover {
-        background: #dbe9ff;
-        transform: translateX(5px);
-      }
-      form {
-        max-width: 500px;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-      }
-      input,
-      textarea,
-      select {
-        padding: 12px;
-        margin-bottom: 15px;
-        border-radius: 10px;
-        border: 1px solid #ccc;
-      }
-      button {
-        padding: 12px;
-        background: #004aad;
-        color: white;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-      }
-      button:hover {
-        background: #002f7a;
-      }
-      footer {
-        text-align: center;
-        padding: 20px;
-        background: #004aad;
-        color: white;
-      } /* Mobile */
-      @media (max-width: 768px) {
-        header {
-          flex-direction: column;
-        }
-        .hero h2 {
-          font-size: 30px;
-        }
-      } /* Button style */
-      .form-btn {
-        padding: 10px 20px;
-        margin-top: 10px;
-        border: none;
-        border-radius: 25px;
-        background: #004aad;
-        color: white;
-        cursor: pointer;
-      }
-      .hero-about {
-        position: relative;
-        min-height: 100vh;
-        background: url("https://images.unsplash.com/photo-1581091215369-9334b7f3ee1b")
-          center/cover no-repeat;
-        background-attachment: fixed; /* THIS MAKES THE BG STAY FIXED */
-        color: white;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding: 80px 50px;
-      }
-      .hero-overlay {
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* overlay for readability */
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding: 20px;
-      }
-      .hero-content {
-        max-width: 1000px;
-      }
-      .hero-content h2 {
-        font-size: 48px;
-        margin-bottom: 20px;
-        color: #ffda44;
-      }
-      .hero-content p {
-        font-size: 18px;
-        line-height: 1.8;
-        margin-bottom: 20px;
-        text-align: left;
-      }
-      .hero-content button {
-        padding: 15px 30px;
-        background: #004aad;
-        color: white;
-        border: none;
-        border-radius: 30px;
-        cursor: pointer;
-        font-size: 16px;
-      }
-      .hero-content button:hover {
-        background: #002f7a;
-      } /* Mobile */
-      @media (max-width: 768px) {
-        .hero-about {
-          padding: 40px 20px;
-        }
-        .hero-content h2 {
-          font-size: 32px;
-        }
-        .hero-content p {
-          font-size: 16px;
-        }
-      }
-      #contact button,
-      #appointment button {
-        background: #ffda44;
-        color: #004aad;
-      }
-      #contact button:hover,
-      #appointment button:hover {
-        background: #ffc107;
-      }
-      .whatsapp-btn {
-        position: fixed;
-        bottom: 90px;
-        right: 25px;
-        background: #25d366;
-        color: white;
-        padding: 15px;
-        border-radius: 50%;
-        font-size: 20px;
-        text-decoration: none;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      }
-      .dark {
-        background: #111;
-        color: white;
-      }
-      #loader {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        background: #004aad;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-      }
-  #fees {
+      html, body {
+  margin: 0;
+  padding: 0;
+}
+      /* Remove default spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* BODY + ANIMATED BACKGROUND */
+body {
+  font-family: Arial, sans-serif;
+
+  background: linear-gradient(-45deg, #004aad, #00c6ff, #6a11cb, #2575fc);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #004aad;
+  color: white;
+  margin-top: 0;
+}
+
+/* Navbar */
+
+/* Nav links */
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #ffcc00;
+}
+
+/* Language buttons */
+.lang-switch {
+  display: flex;
+  gap: 8px;
+  margin-left: 20px;
+}
+
+.lang-switch button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* WhatsApp button */
+.whatsapp-btn {
+  background: #25d366;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 50%;
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 18px;
+}
+/* FLOATING WHATSAPP */
+.whatsapp-float {
+  position: fixed;
+  bottom: 90px;
+  right: 25px;
+  background: #25d366;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 20px;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* HERO */
+.hero {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
+    url("https://images.unsplash.com/photo-1581091215369-9334b7f3ee1b");
+
+  background-size: cover;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.hero button {
+  padding: 15px 30px;
+  background: #004aad;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.hero button:hover {
+  background: #002f7a;
+}
+
+/* SECTION */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #004aad;
+}
+
+/* SERVICES + FORMS */
+/* ===== SERVICE & FORM LIST FIX ===== */
+.service-list,
+.form-list {
+  display: grid;
+  grid-template-columns: 1fr; /* Ek ke neeche ek series */
+  gap: 25px;
+}
+
+.service-item,
+.form-item {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.service-item:hover,
+.form-item:hover {
+  transform: translateY(-10px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 768px) {
+  .service-list,
+  .form-list {
+    grid-template-columns: repeat(2, 1fr); /* tablet: 2 columns */
+  }
+}
+
+@media (min-width: 1200px) {
+  .service-list,
+  .form-list {
+    grid-template-columns: repeat(3, 1fr); /* large screen: 3 columns */
+  }
+}
+.service-item {
+  transition: 0.3s;
+}
+/* IMAGES */
+img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+
+
+/* FORM LIST */
+.form-item ul li {
+  background: #f0f6ff;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+}
+
+.form-item ul li:hover {
+  background: #dbe9ff;
+  transform: translateX(5px);
+}
+
+/* FORM */
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea, select {
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* BUTTON */
+button {
+  padding: 12px;
+  background: #004aad;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #002f7a;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #004aad;
+  color: white;
+}
+
+/* HERO ABOUT */
+.hero-about {
+  min-height: 100vh;
+  background: url("https://images.unsplash.com/photo-1581091215369-9334b7f3ee1b") center/cover no-repeat;
+  background-attachment: fixed;
+  color: white;
+  padding: 80px 50px;
+}
+
+.hero-overlay {
+  background: rgba(0,0,0,0.5);
+  padding: 20px;
+}
+
+.hero-content h2 {
+  font-size: 48px;
+  color: #ffda44;
+}
+
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* FEES */
+#fees {
   background: linear-gradient(135deg, #f0f4f8, #e6f0ff);
 }
 
@@ -284,173 +298,295 @@
 }
 
 .fee-card {
-  position: relative;
   background: white;
   padding: 25px;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 .fee-card:hover {
   transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 15px 30px rgba(0, 74, 173, 0.3);
 }
 
-.fee-card h3 {
-  color: #004aad;
-  margin-bottom: 10px;
-}
-
-.fee-card p {
-  color: #555;
-  font-size: 14px;
-}
-
-.fee-card h4 {
-  margin-top: 15px;
-  font-size: 22px;
-  color: #ff9800;
-  font-weight: bold;
-}
-
-/* 🔥 Highlight Popular Card */
 .fee-card.popular {
   background: linear-gradient(135deg, #004aad, #007bff);
   color: white;
-  transform: scale(1.05);
 }
+/* SLIDER */ .slider3d { width: 200px; height: 200px; margin: 50px auto; perspective: 1000px; } .slider-track { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; animation: rotate 20s linear infinite; } .slider-track span { position: absolute; width: 100%; height: 100%; transform: rotateY(calc(var(--i) * 45deg)) translateZ(300px); } .slider-track span img { width: 100%; height: 100%; object-fit: contain; background: #000; border-radius: 10px; } @keyframes rotate { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
+ /* MOBILE */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
 
-.fee-card.popular h3,
-.fee-card.popular p,
-.fee-card.popular h4 {
+  .hero h2 {
+    font-size: 30px;
+  }
+
+  .hero-content h2 {
+    font-size: 32px;
+  }
+}
+  .contact-section {
+  padding: 60px 20px;
+  background: linear-gradient(to right, #004aad, #00c6ff);
   color: white;
+  text-align: center;
 }
 
-.fee-card.popular h4 {
-  color: #ffda44;
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
-/* Tag */
-/* Popular tag */
+.contact-subtext {
+  margin-bottom: 40px;
+  font-size: 1rem;
+}
 
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
 
-.lang-switch button {
-  padding: 6px 12px;
-  margin-left: 5px;
-  border: none;
+.contact-info {
+  background: rgba(255,255,255,0.1);
+  padding: 25px;
   border-radius: 15px;
-  background: #ffda44;
-  color: #004aad;
-  cursor: pointer;
+  width: 280px;
+  backdrop-filter: blur(10px);
 }
-.fee-card button {
+
+.contact-info h3 {
+  margin-bottom: 15px;
+}
+
+.whatsapp-btn {
+  display: inline-block;
   margin-top: 15px;
-  padding: 10px 20px;
+  padding: 10px 15px;
+  background: #25D366;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.contact-form {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  width: 300px;
+  color: black;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
   border: none;
-  border-radius: 20px;
-  background: #ffda44;
-  color: #004aad;
-  font-weight: bold;
+  border-radius: 8px;
+  outline: none;
+  background: #f1f1f1;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #004aad;
+  color: white;
+  border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.fee-card button:hover {
-  background: #ffc107;
-  transform: scale(1.05);
+.contact-form button:hover {
+  background: #002f6c;
 }
 
-.fee-card .note {
-  font-size: 12px;
-  margin-top: 10px;
-  color: #eee;
-}
-
-/* If not popular card */
-.fee-card:not(.popular) .note {
-  color: #555;
-}
-.qr-box {
-  text-align: center;
-  margin-top: 20px;
-  padding: 15px;
-  background: #fff;
-  border-radius: 10px;
-}
-
-.qr-box img {
-  border-radius: 10px;
-  margin: 10px 0;
-}
-#paidBtn {
-  margin-top: 10px;
-  padding: 10px;
-  background: #28a745;
-  color: white;
-  border-radius: 20px;
-  border: none;
-}
-
-#submitBtn:disabled {
-  background: gray;
-  cursor: not-allowed;
-}
-
-
-.booking-section {
+/* Center the forms */
+.form-container {
   display: flex;
-  flex-direction: column; /* keeps button on top, timer below */
-  align-items: center;
-  margin-top: 10px;
+  justify-content: center;
 }
 
-.timer {
-  margin-top: 5px;
-  font-size: 16px;
-  color: red;
-  font-weight: bold;
-  height: 24px; /* reserves space so boxes don't shift */
+.form-box {
+  width: 100%;
+  max-width: 500px; /* limit width for neatness */
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* optional: nice shadow */
+  border-radius: 10px; /* optional: rounded corners */
+  background-color: #fff; /* optional: white background */
 }
-/* Remove absolute positioning */
-.fee-card .tag {
-  position: relative;       /* no overlap */
-  display: inline-block;    
-  background: red;
-  color: white;
-  padding: 5px 10px;
-  font-size: 12px;
-  border-radius: 10px;
-  margin-bottom: 10px;     /* space below the tag */
+form {
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+}
+
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* 🔥 Logo + Name ek line me */
+.logo-box {
+  display: flex;
+  align-items: center; /* vertical center */
+  gap: 10px;
+}
+
+.logo-box img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.logo-box span {
+  font-size: 18px;
   font-weight: bold;
+}
+
+/* Links */
+.nav-links a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+}
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .logo-box {
+    margin-bottom: 10px;
+  }
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #000;
+  color: white;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+#searchBox {
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 2px solid #004aad;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+#searchBox:focus {
+  box-shadow: 0 0 15px rgba(0, 74, 173, 0.6), 0 0 30px rgba(0, 198, 255, 0.4);
+}
+/* Mobile fix */
+@media (max-width: 768px) {
+  .search-box {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+}
+.form-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.consent-form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
 }
     </style>
   </head>
 
   <body>
-    <div id="google_translate_element" style="display:none;"></div>
-    <header>
-      <h1 class="notranslate">Cyber vishal CAFÉ</h1>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#forms">Forms</a>
-        <a href="#contact">Contact</a>
-        <a href="#appointment">Appointment</a>
-       <a href="#fees">fees</a>
-      </nav>
-    <div class="lang-switch">
-  <button onclick="changeLang('en')">EN</button>
-  <button onclick="changeLang('hi')">हिंदी</button>
-  <button onclick="changeLang('mr')">मराठी</button>
-</div>
-    </header>
-    <div id="loader">Loading...</div>
+    <div id="google_translate_element" style="display:none;" ></div>
+<header class="navbar">
+
+  <div class="logo-box">
+    <img src="img/V-tech logo design.png">
+    <span>Cyber vishal CAFÉ</span>
+  </div>
+
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#forms">Requirements</a>
+    <a href="#fees">Fees</a>
+    <a href="#contact">Contact</a>
+    
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchBox" placeholder="Search services...">
+  </div>
+
+</header>
+    <section id="gallery">
+  <div class="slider3d">
+    
+    <div class="slider-track">
+      <span style="--i:1;"><img src="img/addar.png"></span>
+      <span style="--i:2;"><img src="img/password.jpg"></span>
+      <span style="--i:3;"><img src="img/PAN.jpg"></span>
+      <span style="--i:4;"><img src="img/PC.jpg"></span>
+      <span style="--i:5;"><img src="img/license-icon.png"></span>
+      <span style="--i:6;"><img src="img/resume.jpg"></span>
+      <span style="--i:7;"><img src="img/RTE.jpg"></span>
+      <span style="--i:8;"><img src="img/gov-exam.jpg"></span>
+      <span style="--i:9;"><img src="img/satbara.jpg"></span>
+      <span style="--i:10;"><img src="img/virus.jpg"></span>
+      <span style="--i:11;"><img src="img/car insurance.jpg"></span>
+      <span style="--i:12;"><img src="img/scholoar.jpg"></span>
+      <span style="--i:13;"><img src="img/UDID.jpg"></span>
+      <span style="--i:14;"><img src="img/computer-cracking.jpg"></span>
+      <span style="--i:15;"><img src="img/voter.png"></span>
+      <span style="--i:16;"><img src="img/birth.jpeg"></span>
+      <span style="--i:17;"><img src="img/marriage.png"></span>
+      <span style="--i:18;"><img src="img/NSAP.jpeg"></span>
+      <span style="--i:19;"><img src="img/IndianPassport.png"></span>
+     
+    </div>
+     
+  </div>
+</section>
+    
+   
     <section class="hero-about" id="home">
       <div class="hero-overlay">
         <div class="hero-content">
-       <h2 id="home-title">Welcome to Cyber Vishal CAFÉ</h2>
+       <h2 id="home-title"class="notranslate">Welcome to Cyber Vishal CAFÉ</h2>
           <p id="home-desc">
             Welcome to <mark class="notranslate">Cyber vishal CAFÉ</mark>– your trusted destination for all
             government-related services, digital assistance, and professional
@@ -458,7 +594,7 @@
             processes of official paperwork, forms, and applications for
             citizens of all ages. Our team has years of experience helping
             individuals and families with Aadhaar updates, License applications
-            and renewals, PAN card services, RTE forms, 7/12 land records,
+            and renewals, PAN card services, RTE forms, 7/12 land records, birth-certificate, Death-certificate, Marriage-certificate, IndianPassport, NSAP, 
             Government Exam forms, and a wide variety of Yojana applications
             including PMJAY, Ladli Bahin Yojana, PM Kisan Yojana, PM Ujjwal LPG
             Connection, PM Fasal Bima Yojana, Scholarships, and many more.
@@ -484,97 +620,131 @@
         </div>
       </div>
     </section>
-    <a href="https://wa.me/9579441517" class="whatsapp-btn notranslate">🟢 Whatsapp Chat</a>
-    <section id="services">
-    <h2 id="services-title">Our Services</h2>
-      <div class="service-list">
-        <div class="service-item">
-          <img src="img/addar.png" />
-          <h3>Aadhaar Services</h3>
-          <p>Update & Correction</p>
-        </div>
-
-        <div class="service-item">
-          <img src="img/license-icon.png" />
-          <h3>License Services</h3>
-          <p>Apply & Renew</p>
-        </div>
-
-        <div class="service-item">
-          <img src="https://img.icons8.com/color/96/document.png" />
-          <h3>Form Submission</h3>
-          <p>All Government Forms</p>
-          <button class="form-btn" onclick="showYojana()">View Forms</button>
-        </div>
-
-        <div class="service-item">
-          <img src="img/virus.jpg" />
-          <h3>Computer Virus Cleaning Services</h3>
-          <p>Apply & Make Computer Fast And Working</p>
-        </div>
-        <div class="service-item">
-  <img src="img/password.jpg" alt="Password Reset Service" />
-  <h3>Password Reset Service</h3>
-  <p>Recover & Reset Forgotten Passwords Safely & Securely</p>
-</div>
-
-        <div class="service-item">
-          <img src="img/resume.jpg" />
-          <h3>Resume Services</h3>
-          <p>Make Resume For Any Purpose</p>
-        </div>
-
-        <div class="service-item">
-          <img src="img/gov-exam.jpg" />
-          <h3>Government Exam Form Services</h3>
-          <p>All Gov Exam Form Is Fill Here</p>
-        </div>
-
-        <div class="service-item">
-          <img src="img/RTE.jpg" />
-          <h3>RTE Form Services</h3>
-          <p>Right-To-Educate (RTE)</p>
-        </div>
-
-        <div class="service-item">
-          <img src="img/satbara.jpg" />
-          <h3>7/12 Form Services</h3>
-          <p>Land Information Paper</p>
-        </div>
-
-        <div class="service-item">
-          <img src="img/PAN.jpg" />
-          <h3>PAN card Services</h3>
-        </div>
-
-        <div class="service-item">
-          <img src="img/PC.jpg" />
-          <h3>Computer Software Services</h3>
-          <p>
-            ● APP installation<br />● Coding platforms<br />● Password Reset<br />●
-            Removal <br> ●Pen Drive & Computer Drive Cleaning
-          </p>
-        </div>
-        <div class="service-item">
-          <img src="img/scholoar.jpg" />
-          <h3>Scholarship Services</h3>
-          <p>Education Scholoarship</p>
-        </div>
-        <div class="service-item">
-          <img src="img/car insurance.jpg" />
-          <h3>Car Insurance Services</h3>
-          <p>New Insurance & Renewal Services</p>
-        </div>
+    <section style="text-align:center; padding:40px; background:#fff;">
+ <h3 class="notranslate">Total Bookings: <span id="bookingCount">0</span>+</h3>
+ 
+</section>
+ <section id="services">
+  <h2 id="services-title"><mark>Our Services</mark></h2>
   <div class="service-list">
-        <div class="service-item">
-          <img src="img/UDID.jpg" />
-          <h3>unique Disability ID (UDID)</h3>
-          <p>New & E-KYC</p>
-        </div>
+    <div class="service-item">
+      <img src="img/addar.png" />
+      <h3>Aadhaar Services</h3>
+      <p>Update & Correction</p>
     </div>
-    </section>
-  
 
+    <div class="service-item">
+      <img src="img/license-icon.png" />
+      <h3>License Services</h3>
+      <p>Apply & Renew</p>
+    </div>
+
+    <div class="service-item">
+      <img src="https://img.icons8.com/color/96/document.png" />
+      <h3>Form Submission</h3>
+      <p>All Government Forms</p>
+      <button class="form-btn" onclick="showYojana()">View Forms</button>
+    </div>
+
+    <div class="service-item">
+      <img src="img/virus.jpg" />
+      <h3>Computer Virus Cleaning Services</h3>
+      <p>Apply & Make Computer Fast And Working</p>
+    </div>
+
+    <div class="service-item">
+      <img src="img/password.jpg" alt="Password Reset Service" />
+      <h3>Password Reset Service</h3>
+      <p>Recover & Reset Forgotten Passwords Safely & Securely</p>
+    </div>
+
+    <div class="service-item">
+      <img src="img/resume.jpg" />
+      <h3>Resume Services</h3>
+      <p>Make Resume For Any Purpose</p>
+    </div>
+
+    <div class="service-item">
+      <img src="img/gov-exam.jpg" />
+      <h3>Government Exam Form Services</h3>
+      <p>All Gov Exam Form Is Fill Here</p>
+    </div>
+
+    <div class="service-item">
+      <img src="img/RTE.jpg" />
+      <h3>RTE Form Services</h3>
+      <p>Right-To-Educate (RTE)</p>
+    </div>
+
+    <div class="service-item">
+      <img src="img/satbara.jpg" />
+      <h3>7/12 Form Services</h3>
+      <p>Land Information Paper</p>
+    </div>
+
+    <div class="service-item">
+      <img src="img/PAN.jpg" />
+      <h3>PAN card Services</h3>
+    </div>
+
+    <div class="service-item">
+      <img src="img/PC.jpg" />
+      <h3>Computer Software Services</h3>
+      <p>
+        ● APP installation<br />● Coding platforms<br />● Password Reset<br />●
+        Removal <br> ●Pen Drive & Computer Drive Cleaning
+      </p>
+    </div>
+
+    <div class="service-item">
+      <img src="img/scholoar.jpg" />
+      <h3>Scholarship Services</h3>
+      <p>Education Scholoarship</p>
+    </div>
+
+    <div class="service-item">
+      <img src="img/car insurance.jpg" />
+      <h3>Car Insurance Services</h3>
+      <p>New Insurance & Renewal Services</p>
+    </div>
+
+    <div class="service-item">
+      <img src="img/UDID.jpg" />
+      <h3>unique Disability ID (UDID)</h3>
+      <p>New & E-KYC</p>
+    </div>
+
+    <div class="service-item">
+      <img src="img/voter.png" />
+      <h3>Voter ID</h3>
+      <p>Make Voting Card</p>
+    </div>
+
+    <div class="service-item">
+      <img src="img/birth.jpeg" />
+      <h3>Birth/Death Certificate</h3>
+      <p>Make Birth/Death Certificate</p>
+    </div>
+
+    <div class="service-item">
+      <img src="img/marriage.png" />
+      <h3>Marriage Certificate</h3>
+      <p>Make Marriage Certificate</p>
+    </div>
+
+    <div class="service-item">
+      <img src="img/NSAP.jpeg" />
+      <h3>NSAP</h3>
+      <p>Pensions for senior citizens, widows</p>
+    </div>
+
+    <div class="service-item">
+      <img src="img/IndianPassport.png" />
+      <h3>Indian Passport</h3>
+      <p>Apply / Track / Appointment</p>
+    </div>
+  </div>
+</section>
     <section id="forms">
       <h2><mark>Required Documents</mark></h2>
       
@@ -747,8 +917,62 @@
     <li>📧 Email ID (Optional)</li>
   </ul>
 </div>
+<div class="form-item">
+  <h3>Voter Card Requirements</h3>
+  <ul class="requirements">
+    <li>📄 Proof of Age (Birth Certificate, Passport, PAN, Driving License, School Certificate)</li>
+    <li>🏠 Proof of Residence (Passport, Driving License, Utility Bill, Bank Passbook, Ration Card, Aadhaar)</li>
+    <li>🖼️ Passport-size Photo</li>
+    <li>📱 Mobile Number (optional, for OTP verification)</li>
+  </ul>
+</div>
+<div class="form-item">
+  <h3>Birth Certificate</h3>
+  <ul class="requirements">
+    <li>📄 Parent’s Aadhaar / ID Proof</li>
+    <li>🏥 Hospital / Birth Details</li>
+  </ul>
+</div>
+<div class="form-item">
+  <h3>Marriage Certificate</h3>
+  <ul class="requirements">
+    <li>📄 Aadhaar / ID Proofs of Bride & Groom</li>
+    <li>🏠 Address Proofs</li>
+    <li>📝 Marriage Registration Form</li>
+  </ul>
+</div>
+<div class="form-item">
+  <h3>Death Certificate</h3>
+  <ul class="requirements">
+    <li>📄 Medical Certificate of Death / Hospital Report</li>
+    <li>🏠 Address Proof of Deceased</li>
+    <li>🆔 Identity Proof of Deceased or Applicant</li>
+    <li>📝 FIR / Police Report (if required)</li>
+  </ul>
+</div>
+<div class="form-item">
+  <h3>NSAP (National Social Assistance Programme)</h3>
+  <ul class="requirements">
+    <li>📄 Aadhaar Card</li>
+    <li>🏠 Address Proof / Ration Card</li>
+    <li>🆔 Identity Proof (Voter ID / PAN / Passport)</li>
+    <li>👵 Age Proof (for pension schemes)</li>
+    <li>📝 Bank Account Details (for benefit transfer)</li>
+  </ul>
+</div>
+<div class="form-item">
+  <h3>Passport Application / Renewal</h3>
+  <ul class="requirements">
+    <li>📄 Proof of Date of Birth (Birth Certificate / School Certificate / Aadhaar)</li>
+    <li>🏠 Address Proof (Aadhaar / Voter ID / Utility Bill)</li>
+    <li>🆔 Identity Proof (PAN Card / Driving License / Aadhaar)</li>
+    <li>📸 Passport-sized Photographs</li>
+    <li>💻 Online Application Form (DS-160 / Passport Seva Form)</li>
+    <li>💳 Fee Payment Receipt</li>
+  </ul>
+</div>
       </div>
-
+</section>
       <!-- ✅ YOJANA SECTION (FIXED POSITION) -->
       <div
         id="yojanaForms"
@@ -828,130 +1052,7 @@
         </div>
       </div>
     </section>
-    <section id="contact">
-     <h2 id="contact-title">Contact Us</h2>
-      <div class="form-list">
-        <div class="form-item">
-          <form action="https://formspree.io/f/mqeyplel" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              required
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone Number"
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              rows="5"
-              required
-            ></textarea>
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
-      </div>
-<section id="appointment">
-  <h2 id="appointment-title">Book an Appointment</h2>
-
-  <div class="form-list">
-    <div class="form-item">
-      <form action="https://formspree.io/f/mqeyplel" method="POST" id="bookingForm">
-
-        <!-- User Info -->
-         <input type="hidden" name="paymentStatus" id="hiddenPaymentStatus">
-        <input type="text" name="name" placeholder="Full Name" required />
-        <input type="email" name="email" placeholder="Email Address" required />
-        <input type="tel" name="phone" placeholder="Phone Number" required />
-
-        <!-- Service -->
-        <label for="service">Select Service:</label>
-        <select name="service" id="service" required>
-          <option value="">-- Choose a Service --</option>
-          <option value="150">Aadhaar Services (₹150)</option>
-          <option value="800">License Services (₹800)</option>
-          <option value="500">Virus Cleaning (₹500)</option>
-          <option value="1800">PAN Card Services (₹1800)</option>
-          <option value="150">Resume Services (₹150)</option>
-          <option value="300">RTE Form Services (₹300)</option>
-          <option value="200">Computer Software (₹200)</option>
-          <option value="1400">Scholarships (₹1400)</option>
-          <option value="1000">Car Insurance (₹1000)</option>
-          <option value="300">UDID Card Service (₹300)</option>
-          <option value="100">7/12 Form Services (₹100)</option>
-        </select>
-
-        <!-- Amount Display -->
-        <p id="amountText" style="color:green; font-weight:bold;"></p>
-<p id="advanceText" style="color:orange; font-weight:bold;"></p>
-        <!-- Payment Option -->
-        <label>Payment Option:</label>
-        <select id="paymentOption" onchange="handlePaymentOption()" required>
-          <option value="">-- Select Payment Option --</option>
-          <option value="now">Pay Full Now</option>
-          <option value="later">Pay at Service Time (Advance Required)</option>
-        </select>
-
-        <!-- Payment Buttons -->
-        <button type="button" id="payNowBtn" onclick="payNow()" style="display:none;">
-          💳 Pay Full Amount
-        </button>
-
-        <button type="button" id="advanceBtn" onclick="payAdvance()" style="display:none;">
-          💳 Pay Advance (30%)
-        </button>
-
-        <!-- QR Code -->
-        <div class="qr-box" id="qrBox" style="display:none; text-align:center;">
-          <h3>Scan & Pay</h3>
-          <img src="img/payment.png" alt="UPI QR Code" width="200">
-          <p>Scan using any UPI app</p>
-
-          <!-- Payment Status -->
-          <p id="paymentStatus" style="color:red; font-weight:bold;">
-            Payment Status: Pending ❌
-          </p>
-        </div>
-
-        <!-- Upload Screenshot -->
-        <div id="paymentProof" style="display:none;">
-          <label>Upload Payment Screenshot:</label>
-          <input type="file" id="paymentFile" required />
-        </div>
-
-        <!-- ✅ IMPORTANT BUTTON (YOU WERE MISSING THIS) -->
-        <button type="button" id="paidBtn" onclick="confirmPayment()" style="display:none;">
-          ✅ I Have Paid
-        </button>
-
-        <!-- Date & Time -->
-        <label for="date">Select Date:</label>
-        <input type="date" name="date" id="date" required />
-
-        <label for="time">Select Time:</label>
-        <input type="time" name="time" id="time" required />
-
-        <!-- Submit -->
-        <button type="submit" id="submitBtn" disabled>
-          Book Appointment
-        </button>
-<a id="whatsappBtn" target="_blank" style="display:none;">
-  <button type="button">📲 Confirm on WhatsApp</button>
-</a>
-        <!-- Note -->
-        <p style="color:red; font-size:13px;">
-          *Advance payment is mandatory to confirm booking
-        </p>
-
-      </form>
-    </div>
-  </div>
-</section>
+    
 <section id="fees">
   <h2>💰 Service Charges</h2>
 
@@ -999,8 +1100,9 @@
   <h4>₹100 - ₹300</h4>
   <p class="note">*Charges may vary depending on account complexity</p>
   <div class="booking-section">
-    <button onclick="scrollToAppointment()">Book Now</button>
+   <button id="bookNowBtn1">
     <div class="timer" id="timer1">00:10:00</div>
+     </button>
   </div>
 </div>
 
@@ -1010,8 +1112,9 @@
   <p>Password Reset + Software Install</p>
   <h4>₹350</h4>
   <div class="booking-section">
-    <button onclick="scrollToAppointment()">Book Now</button>
+<button id="bookNowBtn2">  
     <div class="timer" id="timer2">00:10:00</div>
+    </button>
   </div>
 </div>
     <div class="fee-card">
@@ -1032,12 +1135,40 @@
       <h4>₹800 - ₹1000</h4>
     </div>
 
-    <div class="fee-card">
-  <h3>UDID Card</h3>
-  <p>New / Update</p>
-  <h4>₹300 - ₹500</h4>
+<div class="fee-card">
+  <h3>Voter Card</h3>
+  <p>New / Physical card</p>
+  <h4>₹500 - ₹600</h4>
 </div>
 
+<div class="fee-card">
+  <h3>NSAP (National Social Assistance Programme)</h3>
+  <p>Government Pensions</p>
+  <h4>₹900 - ₹1000</h4>
+</div>
+
+<div class="fee-card">
+  <h3>Marriage Certificate</h3>
+  <p>New / Renewal</p>
+  <h4>₹450 - ₹500</h4>
+</div>
+
+<div class="fee-card">
+  <h3>Birth Certificate</h3>
+  <p>New / Renewal</p>
+  <h4>₹500 - ₹600</h4>
+</div>
+<div class="fee-card">
+  <h3>Death Certificate</h3>
+  <p>New / Renewal</p>
+  <h4>₹500 - ₹600</h4>
+</div>
+
+<div class="fee-card">
+  <h3>IndianPassport</h3>
+  <P>New / Renewal</P>
+  <h4>₹2500 - ₹3000</h4>
+</div>
      <div class="fee-card">
       <h3>PMJAY (Ayushman Bharat)</h3>
       <h4>₹1300 - ₹1400</h4>
@@ -1077,41 +1208,213 @@
   </div>
 </section>
 
-    <footer>
-      <p>© 2026 Cyber Vishal CAFÉ | All Rights Reserved</p>
-    </footer>
+<section id="reviews" style="background:#f9f9f9; padding:50px;">
+  <h2>⭐ Customer Reviews</h2>
+
+  <div class="service-list">
+
+    <div class="service-item">
+      <h3>Rahul Patil</h3>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Very fast Aadhaar update service. Highly recommended!</p>
+    </div>
+
+    <div class="service-item">
+      <h3>Priya Sharma</h3>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Helped me with PAN card quickly. Good support 👍</p>
+    </div>
+
+    <div class="service-item">
+      <h3>Amit Verma</h3>
+      <p>⭐⭐⭐⭐</p>
+      <p>Nice service and reasonable charges.</p>
+    </div>
+
+  </div>
+</section>
+<section id="contact">
+  <form id="contactForm">
+    
+    <h2>Contact Us</h2>
+
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="tel" id="phone" placeholder="Mobile Number" required>
+    <textarea id="message" placeholder="Your Message" required></textarea>
+
+    <button type="submit">Submit</button>
+
+  </form>
+</section>
+<div id="consentFormBox" class="form-popup" style="display:none;">
+  <form class="consent-form" onsubmit="finalSubmit(event)">
+    
+    <h2>Consent Form</h2>
+
+    <input type="text" id="cname" placeholder="Full Name" required>
+    <input type="tel" id="cphone" placeholder="Mobile Number" required>
+    <input type="email" id="cemail" placeholder="Email Address" required>
+
+    <!-- 📸 Photo -->
+    <input type="file" id="cphoto" accept="image/*" required>
+
+    <img id="preview" style="width:80px; display:none; margin:10px auto; border-radius:10px;">
+
+    <label style="font-size:13px;">
+      <input type="checkbox" required>
+      I confirm that all information provided is correct and I am responsible for any future issues.
+    </label>
+
+    <button type="submit">Confirm & Submit</button>
+    <button type="button" onclick="closeConsentForm()">Cancel</button>
+
+  </form>
+</div>
+ <footer style="background:#0b1a3a; color:#fff; padding:50px 20px;">
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:30px; max-width:1200px; margin:auto;">
+
+    <!-- About -->
+    <div>
+      <h2 style="color:#ffda44;">Cyber Vishal Café</h2>
+      <p style="margin-top:10px; line-height:1.6;">
+        Your trusted center for Aadhaar, PAN, License, Government Forms, and all digital services.
+        Fast, reliable and affordable solutions in one place.
+      </p>
+    </div>
+
+    <!-- Services -->
+    <div>
+      <h3 style="color:#ffda44;">Our Services</h3>
+      <ul style="list-style:none; margin-top:10px; line-height:1.8;">
+        <li>Aadhaar Services</li>
+        <li>PAN Card</li>
+        <li>License Services</li>
+        <li>Form Filling</li>
+        <li>Computer Services</li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h3 style="color:#ffda44;">Contact Us</h3>
+      <p>📞 +91 9579441517</p>
+      <p>📧 vishalnarkhede463@gmail.com</p>
+      <p>📍 Nagpur, India</p>
+
+      <!-- Social -->
+      <div style="margin-top:10px;">
+        <a href="https://wa.me/9579441517" target="_blank" style="color:#25d366; margin-right:10px;">
+          <i class="fab fa-whatsapp"></i> Whatsapp
+        </a> <br> <br>
+        <a href="https://instagram.com/cyber_vishucodex" target="_blank" style="color:#e1306c; margin-right:10px;">
+          <i class="fab fa-instagram"></i>Instagram -educational
+        </a><br><br>
+<a href="https://instagram.com/itz_jerry_boy_658" target="_blank" style="color:#e1306c; margin-right:10px;"><i class=" fab fa-instagram"></i> instagram -Personal</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom -->
+  <div style="text-align:center; margin-top:30px; border-top:1px solid #444; padding-top:15px; font-size:14px; color:#aaa;">
+    © 2026 Cyber Vishal Café | All Rights Reserved
+  </div>
+
+</footer>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script>
-// ✅ Smooth scroll
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+
+// ==========================
+// ✅ GLOBAL FUNCTIONS (IMPORTANT)
+// ==========================
+function closeConsentForm() {
+  let box = document.getElementById("consentFormBox");
+  if (box) box.style.display = "none";
 }
 
-// ✅ Toggle Yojana
-function showYojana() {
-  let box = document.getElementById("yojanaForms");
-  box.style.display = (box.style.display === "grid") ? "none" : "grid";
-  box.scrollIntoView({ behavior: "smooth" });
-}
+function finalSubmit(e) {
+  e.preventDefault();
 
-// ✅ Counter
-const counters = document.querySelectorAll(".counter");
-counters.forEach((counter) => {
-  let update = () => {
-    let target = +counter.getAttribute("data-target");
-    let count = +counter.innerText;
-    let speed = target / 100;
+  let name = document.getElementById("cname").value;
+  let phone = document.getElementById("cphone").value;
+  let email = document.getElementById("cemail").value;
+  let file = document.getElementById("cphoto").files[0];
 
-    if (count < target) {
-      counter.innerText = Math.ceil(count + speed);
-      setTimeout(update, 20);
-    } else {
-      counter.innerText = target + "+";
-    }
+  if (!file) {
+    alert("Upload photo ❗");
+    return;
+  }
+
+  let reader = new FileReader();
+
+  reader.onload = function(event) {
+    let img = new Image();
+    img.src = event.target.result;
+
+    img.onload = function() {
+      let canvas = document.createElement("canvas");
+      canvas.width = 400;
+      canvas.height = 550;
+
+      let ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#000";
+      ctx.font = "18px Arial";
+      ctx.fillText("CONSENT FORM", 110, 40);
+
+      ctx.font = "14px Arial";
+      ctx.fillText("Name: " + name, 20, 80);
+      ctx.fillText("Phone: " + phone, 20, 110);
+      ctx.fillText("Email: " + email, 20, 140);
+
+      ctx.fillText("User confirmed all details.", 20, 180);
+
+      ctx.drawImage(img, 120, 220, 150, 150);
+
+      let link = document.createElement("a");
+      link.download = name + "_consent.png";
+      link.href = canvas.toDataURL();
+      link.click();
+
+      alert("Submitted Successfully ✅");
+
+      document.getElementById("consentFormBox").style.display = "none";
+    };
   };
-  update();
-});
 
-// ✅ Google Translate
+  reader.readAsDataURL(file);
+}
+
+// ==========================
+// ✅ SMOOTH SCROLL
+// ==========================
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+}
+
+// ==========================
+// ✅ TOGGLE YOJANA
+// ==========================
+function showYojana() {
+  const box = document.getElementById("yojanaForms");
+  if (!box) return;
+
+  const isVisible = getComputedStyle(box).display === "grid";
+  box.style.display = isVisible ? "none" : "grid";
+
+  if (!isVisible) {
+    box.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+// ==========================
+// ✅ GOOGLE TRANSLATE
+// ==========================
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'en',
@@ -1120,17 +1423,21 @@ function googleTranslateElementInit() {
   }, 'google_translate_element');
 }
 
-// ✅ Auto language
+// ==========================
+// ✅ AUTO LANGUAGE
+// ==========================
 function autoTranslate() {
   let userLang = localStorage.getItem("lang");
 
   if (!userLang) {
-    let browserLang = navigator.language;
+    let browserLang = navigator.language || "en";
+
     if (browserLang.includes("hi")) userLang = "hi";
     else if (browserLang.includes("mr")) userLang = "mr";
     else userLang = "en";
   }
 
+  let tries = 0;
   let interval = setInterval(() => {
     let select = document.querySelector(".goog-te-combo");
     if (select) {
@@ -1138,13 +1445,15 @@ function autoTranslate() {
       select.dispatchEvent(new Event("change"));
       clearInterval(interval);
     }
+    if (tries++ > 10) clearInterval(interval);
   }, 500);
 }
 
-// ✅ Change language
+// ==========================
+// ✅ CHANGE LANGUAGE
+// ==========================
 function changeLang(lang) {
   localStorage.setItem("lang", lang);
-
   let select = document.querySelector(".goog-te-combo");
   if (select) {
     select.value = lang;
@@ -1152,187 +1461,137 @@ function changeLang(lang) {
   }
 }
 
-// ✅ Payment option
-function handlePaymentOption() {
-  let option = document.getElementById("paymentOption").value;
+// ==========================
+// 🔥 MAIN CODE
+// ==========================
+document.addEventListener("DOMContentLoaded", () => {
 
-  document.getElementById("payNowBtn").style.display = "none";
-  document.getElementById("advanceBtn").style.display = "none";
-  document.getElementById("qrBox").style.display = "none";
-  document.getElementById("paymentProof").style.display = "none";
-
-  let advanceText = document.getElementById("advanceText");
-
-  if (option === "now") {
-    document.getElementById("payNowBtn").style.display = "block";
-    document.getElementById("qrBox").style.display = "block";
-    if (advanceText) advanceText.style.display = "none";
-  } 
-  else if (option === "later") {
-    document.getElementById("advanceBtn").style.display = "block";
-    document.getElementById("qrBox").style.display = "block";
-    if (advanceText) advanceText.style.display = "block";
-  }
-}
-
-// ✅ Pay full
-function payNow() {
-  let amount = document.getElementById("service").value;
-
-  if (!amount) {
-    alert("Select service first!");
-    return;
-  }
-
-  let url = `upi://pay?pa=yourupi@upi&pn=Cyber Vishal Cafe&am=${amount}&cu=INR`;
-  window.location.href = url;
-
-  showProofSection();
-}
-
-// ✅ Pay advance
-function payAdvance() {
-  let fullAmount = parseInt(document.getElementById("service").value);
-
-  if (!fullAmount) {
-    alert("Select service first!");
-    return;
-  }
-
-  let advanceAmount = Math.floor(fullAmount * 0.3);
-
-  let url = `upi://pay?pa=yourupi@upi&pn=Cyber Vishal Cafe&am=${advanceAmount}&cu=INR`;
-  window.location.href = url;
-
-  showProofSection();
-}
-
-// ✅ Show upload
-function showProofSection() {
-  document.getElementById("paymentProof").style.display = "block";
-}
-
-// ✅ Confirm payment (FINAL FIXED)
-function confirmPayment() {
-  let fileInput = document.getElementById("paymentFile");
-
-  if (!fileInput || fileInput.files.length === 0) {
-    alert("Upload payment screenshot!");
-    return;
-  }
-
-  // Status update
-  let status = document.getElementById("paymentStatus");
-  status.innerText = "Payment Status: Done ✅";
-  status.style.color = "green";
-
-  // Store for email
-  let hidden = document.getElementById("hiddenPaymentStatus");
-  if (hidden) hidden.value = "Done";
-
-  // Enable submit
-  document.getElementById("submitBtn").disabled = false;
-
-  // WhatsApp message
-  let name = document.querySelector("input[name='name']").value;
-  let phone = document.querySelector("input[name='phone']").value;
-  let service = document.getElementById("service").selectedOptions[0].text;
-
-  let msg = `Hello, I have completed payment.%0A
-Name: ${name}%0A
-Phone: ${phone}%0A
-Service: ${service}`;
-
-  let waLink = `https://wa.me/9579441517?text=${msg}`;
-
-  let waBtn = document.getElementById("whatsappBtn");
-  if (waBtn) {
-    waBtn.href = waLink;
-    waBtn.style.display = "block";
-  }
-
-  alert("Payment done! Click WhatsApp to confirm.");
-}
-
-// ✅ On load
-window.addEventListener("load", () => {
   autoTranslate();
 
-  let loader = document.getElementById("loader");
-  if (loader) loader.style.display = "none";
+  // ==========================
+  // ✅ CONTACT FORM
+  // ==========================
+  let formData = {};
 
-  let service = document.getElementById("service");
+  const contactForm = document.getElementById("contactForm");
 
-  if (service) {
-    service.addEventListener("change", function() {
-      let amount = parseInt(this.value);
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-      if (amount) {
-        let advance = Math.floor(amount * 0.3);
+      formData = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        message: document.getElementById("message").value
+      };
 
-        document.getElementById("amountText").innerText =
-          "Total Amount: ₹" + amount;
+      document.getElementById("cname").value = formData.name;
+      document.getElementById("cphone").value = formData.phone;
 
-        document.getElementById("advanceText").innerText =
-          "Advance (30%): ₹" + advance;
-      } else {
-        document.getElementById("amountText").innerText = "";
-        document.getElementById("advanceText").innerText = "";
-      }
+      document.getElementById("consentFormBox").style.display = "flex";
     });
   }
+
+  // ==========================
+  // ✅ SEARCH
+  // ==========================
+
+const searchBox = document.getElementById('searchBox');
+const serviceItems = document.querySelectorAll('.service-item, .form-item');
+
+searchBox.addEventListener('input', () => {
+  const query = searchBox.value.trim().toLowerCase();
+
+  serviceItems.forEach(item => {
+    const text = item.textContent.trim().toLowerCase();
+
+    // Fuzzy match: letters appear in order
+    let match = true;
+    let qIndex = 0;
+    for (let i = 0; i < text.length && qIndex < query.length; i++) {
+      if (text[i] === query[qIndex]) qIndex++;
+    }
+    if (qIndex < query.length) match = false;
+
+    // Fallback: if query is contained in full text, also match
+    if (!match && text.includes(query)) match = true;
+
+    // Show/hide item
+    item.style.display = query === '' || match ? 'block' : 'none';
+  });
 });
-</script>
+  // ==========================
+  // ✅ PHOTO PREVIEW
+  // ==========================
+  const photoInput = document.getElementById("cphoto");
 
-<!-- Google Translate -->
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  if (photoInput) {
+    photoInput.addEventListener("change", function () {
+      const file = this.files[0];
+      if (!file) return;
 
-<!-- Auto Reset after submit -->
-<script>
-document.getElementById("bookingForm").addEventListener("submit", function() {
-  setTimeout(() => {
-    this.reset();
+      const reader = new FileReader();
 
-    document.getElementById("paymentStatus").innerText = "Payment Status: Pending ❌";
-    document.getElementById("paymentStatus").style.color = "red";
+      reader.onload = function (e) {
+        const img = document.getElementById("preview");
+        if (img) {
+          img.src = e.target.result;
+          img.style.display = "block";
+        }
+      };
 
-    document.getElementById("submitBtn").disabled = true;
-  }, 2000);
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // ==========================
+  // ✅ BOOKING COUNTER
+  // ==========================
+  let count = 0;
+  let target = 1000;
+
+  let counterEl = document.getElementById("bookingCount");
+
+  if (counterEl) {
+    let interval = setInterval(() => {
+      count += 10;
+
+      if (count >= target) {
+        count = target;
+        clearInterval(interval);
+      }
+
+      counterEl.innerText = count + "+";
+
+    }, 50);
+  }
+
 });
-</script>
-<script>
-  function startTimer(duration, displayId) {
+function startTimer(id, duration) {
   let timer = duration, minutes, seconds;
-  const display = document.getElementById(displayId);
-  const interval = setInterval(() => {
-    minutes = parseInt(timer / 60, 10);
-    seconds = parseInt(timer % 60, 10);
+  let el = document.getElementById(id);
+
+  setInterval(() => {
+    minutes = Math.floor(timer / 60);
+    seconds = timer % 60;
 
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
-     
-    display.textContent = minutes + ":" + seconds;
+
+    el.innerText = minutes + ":" + seconds;
 
     if (--timer < 0) {
-      clearInterval(interval);
-      display.textContent = "Offer Expired";
-      document.getElementById("bookNowBtn1").disabled = true; // disable button
+      timer = 0;
     }
   }, 1000);
 }
 
-// Example: start 10-minute timer for first card
-startTimer(10 * 60, "timer1");
+// Start timers
+startTimer("timer1", 600);
+startTimer("timer2", 600);
+</script>
 
-// Repeat for other cards with their unique IDs
-// startTimer(5 * 60, "timer2");
-</script>
-<script>
-  function scrollToAppointment() {
-  document.getElementById('appointment').scrollIntoView({ 
-    behavior: 'smooth' 
-  });
-}
-</script>
+
+
 </body>
 </html>
