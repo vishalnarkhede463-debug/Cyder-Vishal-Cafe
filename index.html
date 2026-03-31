@@ -527,6 +527,133 @@ input, button {
   border-radius: 10px;
   width: 300px;
 }
+/* Container for star rating */
+/* Rating stars */
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.rating span {
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+.rating span:hover,
+.rating span:hover ~ span,
+.rating .selected {
+  color: gold;
+}
+
+/* Review form */
+.user-rating {
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.user-rating h3 {
+  margin-bottom: 15px;
+  text-align: center;
+  color: #333;
+}
+
+.user-rating input,
+.user-rating textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.user-rating button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.user-rating button:hover {
+  background-color: #0056b3;
+}
+
+/* Review display */
+/* Review display container as grid */
+#reviewsContainer {
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Individual review card */
+.review {
+  border: 1px solid #ccc;
+  padding: 15px 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.review strong {
+  font-size: 16px;
+  color: #333;
+}
+
+.review .stars {
+  color: gold;
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.review p {
+  margin: 5px 0 0 0;
+  font-size: 14px;
+  color: #555;
+}
+.popup {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 5px; right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
     </style>
   </head>
 
@@ -1208,31 +1335,6 @@ input, button {
   </div>
 </section>
 
-<section id="reviews" style="background:#f9f9f9; padding:50px;">
-  <h2>⭐ Customer Reviews</h2>
-
-  <div class="service-list">
-
-    <div class="service-item">
-      <h3>Rahul Patil</h3>
-      <p>⭐⭐⭐⭐⭐</p>
-      <p>Very fast Aadhaar update service. Highly recommended!</p>
-    </div>
-
-    <div class="service-item">
-      <h3>Priya Sharma</h3>
-      <p>⭐⭐⭐⭐⭐</p>
-      <p>Helped me with PAN card quickly. Good support 👍</p>
-    </div>
-
-    <div class="service-item">
-      <h3>Amit Verma</h3>
-      <p>⭐⭐⭐⭐</p>
-      <p>Nice service and reasonable charges.</p>
-    </div>
-
-  </div>
-</section>
 <section id="contact">
   <form id="contactForm">
     
@@ -1270,6 +1372,30 @@ input, button {
 
   </form>
 </div>
+<!-- Popup Modal -->
+<div id="reviewPopup" class="popup" style="display:none;">
+  <div class="popup-content">
+    <span id="closePopup" class="close">&times;</span>
+    <h3>Give Your Review</h3>
+    <input type="text" id="reviewerName" placeholder="Your Name" />
+    <div class="rating" id="starRating">
+      <span data-value="5">&#9733;</span>
+      <span data-value="4">&#9733;</span>
+      <span data-value="3">&#9733;</span>
+      <span data-value="2">&#9733;</span>
+      <span data-value="1">&#9733;</span>
+    </div>
+    <textarea id="reviewText" placeholder="Your review..."></textarea>
+    <button onclick="submitReview()">Submit Review</button>
+
+    <!-- Button to go to reviews -->
+    <button id="goToReviewsBtn" style="margin-top:10px;">See All Reviews</button>
+  </div>
+</div>
+
+<!-- Reviews Container -->
+<div id="reviewsContainer"></div>
+<button id="loadMore" style="display:none;" onclick="loadMoreReviews()">Load More</button>
  <footer style="background:#0b1a3a; color:#fff; padding:50px 20px;">
 
   <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:30px; max-width:1200px; margin:auto;">
@@ -1589,9 +1715,120 @@ function startTimer(id, duration) {
 // Start timers
 startTimer("timer1", 600);
 startTimer("timer2", 600);
+
+
+
+
+/// ====== Rating & Review JS ======
+// LocalStorage se load
+let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+let visibleCount = 5;
+let selectedRating = 0;
+
+const stars = document.querySelectorAll("#starRating span");
+
+// Hover & click effect
+stars.forEach(star => {
+  const val = parseInt(star.getAttribute("data-value"));
+
+  star.addEventListener("mouseover", () => {
+    stars.forEach(s => {
+      s.classList.toggle("selected", parseInt(s.getAttribute("data-value")) <= val);
+    });
+  });
+
+  star.addEventListener("mouseout", () => {
+    stars.forEach(s => {
+      s.classList.toggle("selected", parseInt(s.getAttribute("data-value")) <= selectedRating);
+    });
+  });
+
+  star.addEventListener("click", () => {
+    selectedRating = val;
+    stars.forEach(s => {
+      s.classList.toggle("selected", parseInt(s.getAttribute("data-value")) <= selectedRating);
+    });
+  });
+});
+
+// Submit review
+function submitReview() {
+  const name = document.getElementById("reviewerName").value.trim();
+  const text = document.getElementById("reviewText").value.trim();
+
+  if(!name || !text || selectedRating === 0) {
+    alert("Please enter name, review text and select stars.");
+    return;
+  }
+
+  reviews.push({name, text, rating: selectedRating});
+  localStorage.setItem("reviews", JSON.stringify(reviews));
+
+  // Clear form
+  document.getElementById("reviewerName").value = "";
+  document.getElementById("reviewText").value = "";
+  selectedRating = 0;
+  stars.forEach(s => s.classList.remove("selected"));
+
+  renderReviews();
+}
+
+// Render reviews
+function renderReviews() {
+  const container = document.getElementById("reviewsContainer");
+  container.innerHTML = "";
+
+  const displayReviews = reviews.slice(0, visibleCount);
+
+  displayReviews.forEach(r => {
+    const div = document.createElement("div");
+    div.className = "review";
+    div.innerHTML = `
+      <strong>${r.name}</strong>
+      <div class="stars">${"&#9733;".repeat(r.rating)}</div>
+      <p>${r.text}</p>
+    `;
+    container.appendChild(div);
+  });
+
+  const loadBtn = document.getElementById("loadMore");
+  loadBtn.style.display = reviews.length > visibleCount ? "block" : "none";
+}
+
+// Load more
+function loadMoreReviews() {
+  visibleCount += 5;
+  renderReviews();
+}
+
+// Page load
+renderReviews();
+
+const popup = document.getElementById("reviewPopup");
+const closePopup = document.getElementById("closePopup");
+
+// Open popup automatically after 1 second
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    popup.style.display = "flex";
+  }, 1000); // 1 second delay
+});
+
+// Close popup
+closePopup.addEventListener("click", () => {
+  popup.style.display = "none";
+});
+
+// Click outside popup to close
+window.addEventListener("click", (e) => {
+  if(e.target == popup) popup.style.display = "none";
+});
+
+// Scroll to reviews button
+document.getElementById("goToReviewsBtn").addEventListener("click", () => {
+  popup.style.display = "none"; // Close popup
+  document.getElementById("reviewsContainer").scrollIntoView({ behavior: "smooth" });
+});
 </script>
-
-
-
 </body>
 </html>
